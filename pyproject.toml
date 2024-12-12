@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "leetcode-exercices"
+version = "0.1.0"
+description = ""
+authors = ["David Jimenez <david.jimenez19@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+docopt = "^0.6.2"
+
+aioboto3 = "^13.1.0"
+solution = "^5.4.0"
+[tool.poetry.group.dev.dependencies]
+flake8-black = "^0.3.6"
+debugpy = "^1.6.7.post1"
+pytest = "^7.4.0"
+black = "^24.10.0"
+flake8 = "^7.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+domain-list = "domain_list.__main__:main"
+
+[tool.basedpyright]
+typeCheckingMode = "off"

@@ -1,0 +1,3 @@
+[flake8]
+ignore = BLK100
+per-file-ignores = test_list_domains.py:E501
