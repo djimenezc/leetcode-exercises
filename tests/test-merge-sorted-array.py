@@ -4,9 +4,6 @@ from src import merge_sorted_array
 
 
 @pytest.mark.parametrize('nums1,m,nums2,n, expected', [
-    # each element of this list will provide values for the
-    # topics "value_A" and "value_B" of the test and will
-    # generate a stand-alone test case.
     ([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3, [1, 2, 2, 3, 5, 6]),
     ([1], 1, [], 0, [1]),
     ([0], 0, [1], 1, [1]),
