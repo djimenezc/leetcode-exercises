@@ -13,8 +13,8 @@ from src import remove_duplicates_from_sorted_array
 ])
 def test_merge(nums, k, nums_expect):
     solution = remove_duplicates_from_sorted_array.Solution()
-    k = solution.removeDuplicates(nums)
+    output = solution.removeDuplicates(nums)
 
-    assert k == k
+    assert k == output
     for i in range(0, k):
         assert nums[i] == nums_expect[i];
