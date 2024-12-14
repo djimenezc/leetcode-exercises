@@ -24,6 +24,7 @@ n == nums.length
 
 Follow-up: Could you solve the problem in linear time and in O(1) space?
 '''
+import math
 from typing import List
 
 
@@ -42,3 +43,8 @@ class Solution:
                 k = x
 
         return k
+
+    def majorityElement2(self, nums: List[int]) -> int:
+
+        nums.sort()
+        return nums[math.floor(len(nums) / 2)]
