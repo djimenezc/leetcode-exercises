@@ -1,5 +1,7 @@
 from typing import List
 
+import pytest
+
 '''
 Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
 
@@ -49,6 +51,7 @@ Constraints:
 0 <= val <= 100
 '''
 
+
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
 
@@ -62,3 +65,17 @@ class Solution:
                 k = k + 1
 
         return k
+
+
+@pytest.mark.parametrize('nums, val, expected, nums_expect', [
+    ([3, 2, 2, 3], 3, 2, [2, 2]),
+    ([0, 1, 2, 2, 3, 0, 4, 2], 2, 5, [0, 1, 4, 0, 3]),
+
+])
+def test_merge(nums, val, expected, nums_expect):
+    solution = Solution()
+    k = solution.removeElement(nums, val)
+
+    assert k == expected
+    # nums[:k].sort()
+    # assert nums[:k] == nums_expect

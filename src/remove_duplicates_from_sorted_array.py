@@ -44,6 +44,8 @@ nums is sorted in non-decreasing order.
 '''
 from typing import List
 
+import pytest
+
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
@@ -61,3 +63,20 @@ class Solution:
                 k = k + 1
 
         return k
+
+
+@pytest.mark.parametrize('nums, k, nums_expect', [
+    ([], 0, []),
+    ([1, 1, 2], 2, [1, 2, '_']),
+    ([0, 0, 1, 1, 1], 2, [0, 1, '_', '_', '_']),
+    ([0, 0, 1, 1, 1, 2], 3, [0, 1, 2, '_', '_', '_']),
+    ([0, 0, 1, 1, 1, 2, 2, 3, 3, 4], 5, [0, 1, 2, 3, 4, '_', '_', '_', '_', '_']),
+
+])
+def test_merge(nums, k, nums_expect):
+    solution = Solution()
+    output = solution.removeDuplicates(nums)
+
+    assert k == output
+    for i in range(0, k):
+        assert nums[i] == nums_expect[i];

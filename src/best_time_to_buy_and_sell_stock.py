@@ -27,6 +27,8 @@ Constraints:
 '''
 from typing import List
 
+import pytest
+
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -36,8 +38,18 @@ class Solution:
         for x in range(1, len(prices)):
             if lowest_price > prices[x]:
                 lowest_price = prices[x]
-                continue
-            if prices[x] - lowest_price > max_profit:
+            elif prices[x] - lowest_price > max_profit:
                 max_profit = prices[x] - lowest_price
 
         return max_profit
+
+
+@pytest.mark.parametrize('nums, k', [
+    ([7, 1, 5, 3, 6, 4], 5),
+    ([7, 6, 4, 3, 1], 0),
+])
+def test_merge(nums, k):
+    solution = Solution()
+    output = solution.maxProfit(nums)
+
+    assert k == output

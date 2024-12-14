@@ -27,6 +27,8 @@ Follow-up: Could you solve the problem in linear time and in O(1) space?
 import math
 from typing import List
 
+import pytest
+
 
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -48,3 +50,20 @@ class Solution:
 
         nums.sort()
         return nums[math.floor(len(nums) / 2)]
+
+
+@pytest.mark.parametrize('nums, k', [
+    ([1], 1),
+    ([3, 2, 3], 3),
+    ([2, 2, 1, 1, 1, 2, 2], 2),
+    ([3, 3, 4], 3)
+])
+def test_merge(nums, k, ):
+    solution = Solution()
+    output = solution.majorityElement(nums)
+
+    assert k == output
+
+    output = solution.majorityElement2(nums)
+
+    assert k == output

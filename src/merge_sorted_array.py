@@ -50,6 +50,8 @@ yes, O(M+N)
 
 from typing import List
 
+import pytest
+
 
 class Solution:
 
@@ -58,16 +60,32 @@ class Solution:
         index1 = 0
         index2 = 0
 
-        if m is 0:
+        if m == 0:
             for i in range(0, len(nums2)):
                 nums1[i] = nums2[i]
-        elif n is not 0:
+        elif n != 0:
             for i in range(0, n + m):
                 if index2 >= n:
                     break
-                if (nums1[i] is 0 and index1 >= m) or nums1[i] > nums2[index2]:
+                if (nums1[i] == 0 and index1 >= m) or nums1[i] > nums2[index2]:
                     nums1.insert(i, nums2[index2])
                     index2 = index2 + 1
                     nums1.pop()
                 else:
                     index1 = index1 + 1
+
+
+@pytest.mark.parametrize('nums1,m,nums2,n, expected', [
+    ([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3, [1, 2, 2, 3, 5, 6]),
+    ([1], 1, [], 0, [1]),
+    ([0], 0, [1], 1, [1]),
+    ([3, 3, 4, 5, 0, 0, 0], 4, [1, 1, 1], 3, [1, 1, 1, 3, 3, 4, 5]),
+    ([1, 1, 6, 10, 0, 0, 0, 0, 0], 4, [2, 3, 7, 11, 12], 5, [1, 1, 2, 3, 6, 7, 10, 11, 12]),
+    ([-1, 0, 0, 3, 3, 3, 0, 0, 0], 6, [1, 2, 2], 3, [-1, 0, 0, 1, 2, 2, 3, 3, 3])
+
+])
+def test_merge(nums1, m, nums2, n, expected):
+    solution = Solution()
+    solution.merge(nums1, m, nums2, n)
+
+    assert nums1 == expected
