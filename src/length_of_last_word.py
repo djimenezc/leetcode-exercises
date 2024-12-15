@@ -39,9 +39,16 @@ import pytest
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
         words = s.split()
-        length_last_word = len(words[len(words) - 1])
 
-        return length_last_word
+        return len(words[len(words) - 1])
+
+    def lengthOfLastWord2(self, s: str) -> int:
+        words = s.strip().split()
+
+        if not words:
+            return 0
+
+        return len(words[-1])
 
 
 @pytest.mark.parametrize('s, expected_output', [
@@ -54,3 +61,5 @@ def test_merge(s, expected_output):
     output = solution.lengthOfLastWord(s)
 
     assert output == expected_output
+
+    assert solution.lengthOfLastWord2(s) == expected_output
