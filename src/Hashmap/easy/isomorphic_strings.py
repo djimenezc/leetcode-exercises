@@ -43,9 +43,6 @@ Constraints:
 t.length == s.length
 s and t consist of any valid ascii character.
 """
-import math
-import re
-from collections import Counter
 
 import pytest
 
