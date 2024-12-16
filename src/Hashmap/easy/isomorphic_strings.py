@@ -68,6 +68,8 @@ class Solution:
     ("foo", "bar", False),
     ("paper", "title", True),
     ("badc", "baba", False),
+    ("aaaac", "aaaab", True),
+    ("aaaac", "aaazb", False),
 ])
 def test_merge(s, t, expected_output):
     solution = Solution()
