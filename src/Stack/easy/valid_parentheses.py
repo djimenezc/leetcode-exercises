@@ -90,6 +90,18 @@ class Solution:
             else:
                 return len(s) == 0
 
+    def isValid4(self, s: str) -> bool:
+        stack = []
+        bracket_map = {')': '(', '}': '{', ']': '['}
+        for char in s:
+            if char in bracket_map:
+                top_element = stack.pop() if stack else '#'
+                if bracket_map[char] != top_element:
+                    return False
+            else:
+                stack.append(char)
+        return not stack
+
 
 @pytest.mark.parametrize('s, expected_output', [
     ("()", True),
@@ -106,5 +118,8 @@ def test_merge(s, expected_output):
 
     assert output == expected_output
     output = solution.isValid3(s)
+
+    assert output == expected_output
+    output = solution.isValid4(s)
 
     assert output == expected_output
