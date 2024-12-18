@@ -23,9 +23,6 @@ Constraints:
 -109 <= nums[i] <= 109
 0 <= k <= 105
 """
-import math
-import re
-from collections import Counter
 from typing import List
 
 import pytest
