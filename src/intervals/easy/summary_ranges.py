@@ -55,13 +55,13 @@ class Solution:
         for i in range(len(nums)):
             if interval_start is None:
                 interval_start = nums[i]
-            if i < len(nums) -1 and nums[i] + 1 == nums[i + 1]:
+            if i < len(nums) - 1 and nums[i] + 1 == nums[i + 1]:
                 interval_end = nums[i] + 1
             else:
                 if interval_end is None:
                     result.append(f'{interval_start}')
                 else:
-                    result.append( f'{interval_start}->{interval_end}')
+                    result.append(f'{interval_start}->{interval_end}')
                 interval_end = None
                 interval_start = None
 
