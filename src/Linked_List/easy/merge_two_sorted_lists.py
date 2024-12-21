@@ -160,6 +160,25 @@ class Solution:
 
         return list1
 
+    def mergeTwoLists3(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode(0)
+        current = dummy
+
+        while list1 and list2:
+            if list1.val < list2.val:
+                current.next = list1
+                list1 = list1.next
+            else:
+                current.next = list2
+                list2 = list2.next
+            current = current.next
+
+        # Attach remaining nodes
+        current.next = list1 if list1 else list2
+        print_node_list(dummy.next)
+
+        return dummy.next  # Return the head of the merged list
+
 
 @pytest.mark.parametrize('list1, list2, expected_output', [
     (buildList([5]), buildList([1, 2, 4]), buildList([1, 2, 4, 5])),
@@ -178,5 +197,8 @@ def test_merge(list1, list2, expected_output):
 
     assert print_node_list(output) == print_node_list(expected_output)
     output = solution.mergeTwoLists2(list1, list2)
+
+    assert print_node_list(output) == print_node_list(expected_output)
+    output = solution.mergeTwoLists3(list1, list2)
 
     assert print_node_list(output) == print_node_list(expected_output)
