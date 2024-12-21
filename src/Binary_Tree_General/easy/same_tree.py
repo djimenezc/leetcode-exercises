@@ -30,13 +30,7 @@ The number of nodes in both trees is in the range [0, 100].
 from typing import Optional
 
 import pytest
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from ..Utils import TreeNode
 
 
 class Solution:
