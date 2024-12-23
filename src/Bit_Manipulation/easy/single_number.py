@@ -1,65 +1,98 @@
 """
-Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
-
-You must implement a solution with a linear runtime complexity and use only constant extra space.
+Given an integer x, return true if x is a palindrome, and false otherwise.
 
 
 
 Example 1:
 
-Input: nums = [2,2,1]
-Output: 1
+Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.
 Example 2:
 
-Input: nums = [4,1,2,1,2]
-Output: 4
+Input: x = -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
 Example 3:
 
-Input: nums = [1]
-Output: 1
+Input: x = 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 
 
 Constraints:
 
-1 <= nums.length <= 3 * 104
--3 * 104 <= nums[i] <= 3 * 104
-Each element in the array appears twice except for one element which appears only once.
+-231 <= x <= 231 - 1
 
-The XOR operation has two useful properties:
 
-( x \oplus x = 0 ): XORing a number with itself results in 0.
-( x \oplus 0 = x ): XORing a number with 0 keeps the number unchanged.
-
-By XORing all elements in the array, the elements that appear twice will cancel each other out
-(since ( x \oplus x = 0 )), leaving only the single element that appears once.
-
-Approach :
-Initialize a variable result to 0.
-Iterate through each number in the array:
-XOR the number with result.
-After the loop, result will contain the single number that doesn’t appear twice.
+Follow up: Could you solve it without converting the integer to a string?
 
 """
-from typing import List
 
 import pytest
 
 
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
-        result = 0
-        for num in nums:
-            result ^= num
-        return result
+
+    # faster
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0 or (x != 0 and x % 10 == 0):
+            return False
+        x_string = str(x)
+        i = 0
+        k = len(x_string) - 1
+
+        while i < k:
+            if x_string[i] != x_string[len(x_string) - 1 - i]:
+                return False
+            i += 1
+            k -= 1
+
+        return True
+
+    def isPalindrome2(self, x: int) -> bool:
+        if x < 0 or (x != 0 and x % 10 == 0):
+            return False
+
+        reversed_num = 0
+        temp = x
+
+        while temp != 0:
+            digit = temp % 10
+            reversed_num = reversed_num * 10 + digit
+            temp //= 10
+
+        return reversed_num == x
+
+    def isPalindrome3(self, x: int) -> bool:
+        if x < 0 or (x != 0 and x % 10 == 0):
+            return False
+
+        reversed_num = 0
+        # original = x
+
+        while x > reversed_num:
+            reversed_num = reversed_num * 10 + x % 10
+            x //= 10
+
+        return x == reversed_num or x == reversed_num // 10
 
 
-@pytest.mark.parametrize('nums, expected_output', [
-    ([2, 2, 1], 1),
-    ([4, 1, 2, 1, 2], 4),
-    ([1], 1),
+@pytest.mark.parametrize('x, expected_output', [
+    (121, True),
+    (123321, True),
+    (123421, False),
+    (-121, False),
+    (10, False),
 ])
-def test_merge(nums, expected_output):
+def test_merge(x, expected_output):
     solution = Solution()
-    output = solution.singleNumber(nums)
+    output = solution.isPalindrome(x)
+
+    assert output == expected_output
+    output = solution.isPalindrome2(x)
+
+    assert output == expected_output
+    output = solution.isPalindrome3(x)
 
     assert output == expected_output
