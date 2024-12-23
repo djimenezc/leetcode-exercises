@@ -71,6 +71,15 @@ class Solution:
 
         return output
 
+    def hammingWeight3(self, n: int) -> int:
+        res = 0
+
+        for i in range(32):
+            if (n >> i) & 1:
+                res += 1
+
+        return res
+
 
 @pytest.mark.parametrize('n, expected_output', [
     (11, 3),
@@ -83,5 +92,8 @@ def test_merge(n, expected_output):
 
     assert output == expected_output
     output = solution.hammingWeight2(n)
+
+    assert output == expected_output
+    output = solution.hammingWeight3(n)
 
     assert output == expected_output
