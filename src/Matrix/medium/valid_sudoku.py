@@ -79,6 +79,7 @@ class Solution:
 
         return True
 
+
 @pytest.mark.parametrize('board, expected_output', [
     ([["5", "3", ".", ".", "7", ".", ".", ".", "."]
          , ["6", ".", ".", "1", "9", "5", ".", ".", "."]
