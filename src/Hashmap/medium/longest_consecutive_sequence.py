@@ -28,6 +28,7 @@ import pytest
 
 
 class Solution:
+    # Time complexity O(N)
     def longestConsecutive(self, nums: List[int]) -> int:
         num_set = set(nums)
         longest = 0
@@ -43,6 +44,26 @@ class Solution:
 
         return longest
 
+    def longestConsecutive2(self, nums: List[int]) -> int:
+        nums = set(nums)
+        longest_len = 0
+        tbl = dict()
+        for num in nums:
+            # get the length for num - 1 sequence formed so far
+            l = tbl.get(num - 1, 0)
+            # get the length for num + 1 sequence formed so far
+            r = tbl.get(num + 1, 0)
+            # calculate the current sequnce length possible
+            curr_len = r + l + 1
+            # set the sequence length for starting index
+            # to find starting index just subtract current num - l
+            # think: each step was 1 and we just moved l*1 from num to get the start
+            tbl[num - l] = curr_len
+            # similar for the rightmost
+            tbl[num + r] = curr_len
+            longest_len = max(curr_len, longest_len)
+        return longest_len
+
 
 @pytest.mark.parametrize('nums, expected_output', [
     ([100, 4, 200, 1, 3, 2], 4),
@@ -51,5 +72,8 @@ class Solution:
 def test_merge(nums, expected_output):
     solution = Solution()
     output = solution.longestConsecutive(nums)
+
+    assert output == expected_output
+    output = solution.longestConsecutive2(nums)
 
     assert output == expected_output
