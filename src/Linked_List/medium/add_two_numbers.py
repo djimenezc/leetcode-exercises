@@ -5,7 +5,7 @@ from typing import Optional
 
 import pytest
 
-from src.Linked_List.Utils import ListNode, build_node, isSame_list_node, build_list_node
+from src.Linked_List.Utils import ListNode, build_node, is_same_list_node, build_list_node
 
 
 class Solution:
@@ -75,7 +75,7 @@ def test_merge(l1, l2, expected_output):
     solution = Solution()
     output = solution.addTwoNumbers(l1, l2)
 
-    assert isSame_list_node(output, expected_output)
+    assert is_same_list_node(output, expected_output)
     output = solution.addTwoNumbers2(l1, l2)
 
-    assert isSame_list_node(output, expected_output)
+    assert is_same_list_node(output, expected_output)

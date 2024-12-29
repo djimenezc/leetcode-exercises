@@ -28,7 +28,7 @@ from typing import Optional
 
 import pytest
 
-from src.Linked_List.Utils import ListNode, build_list_node, isSame_list_node
+from src.Linked_List.Utils import ListNode, build_list_node, is_same_list_node
 
 
 class Solution:
@@ -69,4 +69,4 @@ def test_merge(head, left, right, expected_output):
     solution = Solution()
     output = solution.reverseBetween(head, left, right)
 
-    assert isSame_list_node(output, expected_output)
+    assert is_same_list_node(output, expected_output)

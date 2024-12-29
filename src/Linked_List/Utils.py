@@ -54,7 +54,7 @@ def build_list_node(nums: List) -> ListNode:
     return head
 
 
-def isSame_list_node(p: ListNode, q: ListNode) -> bool:
+def is_same_list_node(p: ListNode, q: ListNode) -> bool:
     if not p and not q:
         return True  # Both are None
     if not p or not q:
@@ -63,4 +63,4 @@ def isSame_list_node(p: ListNode, q: ListNode) -> bool:
         return False  # Values are different
 
     # Recursively check left and right subtrees
-    return isSame_list_node(p.next, q.next)
+    return is_same_list_node(p.next, q.next)

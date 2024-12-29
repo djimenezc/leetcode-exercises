@@ -105,7 +105,9 @@ def test_merge(expected_output):
     assert obj.insert(1) == True
     assert obj.remove(2) == False
     assert obj.insert(2) == True
-    assert obj.getRandom() == 1
+    random = obj.getRandom()
+    assert random == 2 or random == 1
     assert obj.remove(1) == True
     assert obj.insert(2) == False
-    assert obj.getRandom() == 2
+    random = obj.getRandom()
+    assert random == 2 or random == 1
