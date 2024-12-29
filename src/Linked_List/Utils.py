@@ -33,7 +33,7 @@ def build_node(nums: List) -> Node:
     return nodes[0]
 
 
-def print_linked_list(head: Node):
+def print_node(head: Node):
     current = head
     str = ''
     while current:

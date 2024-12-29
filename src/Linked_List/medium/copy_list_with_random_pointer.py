@@ -52,7 +52,7 @@ from typing import Optional
 
 import pytest
 
-from src.Linked_List.Utils import Node, build_node, print_linked_list
+from src.Linked_List.Utils import Node, build_node, print_node
 
 
 class Solution:
@@ -115,13 +115,13 @@ class Solution:
 def test_merge(head, expected_output):
     solution = Solution()
     output = solution.copyRandomList(head)
-    old_str = print_linked_list(output)
-    new_str = print_linked_list(expected_output)
+    old_str = print_node(output)
+    new_str = print_node(expected_output)
 
     assert new_str == old_str
 
     output = solution.copyRandomList2(head)
-    old_str = print_linked_list(output)
-    new_str = print_linked_list(expected_output)
+    old_str = print_node(output)
+    new_str = print_node(expected_output)
 
     assert new_str == old_str
