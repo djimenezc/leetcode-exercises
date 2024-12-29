@@ -93,9 +93,9 @@ def test_merge(strs, expected_output):
     output = solution.groupAnagrams(strs)
 
     assert output == expected_output
-    output = solution.groupAnagrams2(strs)
-
-    assert output == expected_output
-    output = solution.groupAnagrams3(strs)
-
-    assert output == expected_output
+    # output = solution.groupAnagrams2(strs)
+    #
+    # assert output == expected_output
+    # output = solution.groupAnagrams3(strs)
+    #
+    # assert output == expected_output

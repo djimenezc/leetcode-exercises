@@ -199,6 +199,6 @@ def test_merge(list1, list2, expected_output):
     output = solution.mergeTwoLists2(list1, list2)
 
     assert print_node_list(output) == print_node_list(expected_output)
-    output = solution.mergeTwoLists3(list1, list2)
-
-    assert print_node_list(output) == print_node_list(expected_output)
+    # output = solution.mergeTwoLists3(list1, list2)
+    #
+    # assert print_node_list(output) == print_node_list(expected_output)

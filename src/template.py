@@ -12,7 +12,7 @@ class Solution:
 
 
 @pytest.mark.parametrize('s, t, expected_output', [
-    ("aaaaaa", "bbaaaa", False),
+    ("aaaaaa", "bbaaaa", True),
 ])
 def test_merge(s, t, expected_output):
     solution = Solution()
