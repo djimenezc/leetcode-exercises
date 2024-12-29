@@ -5,7 +5,7 @@ from typing import Optional
 
 import pytest
 
-from src.Linked_List.Utils import ListNode, buildList, isSameListNode
+from src.Linked_List.Utils import ListNode, build_node, isSame_list_node, build_list_node
 
 
 class Solution:
@@ -67,15 +67,15 @@ class Solution:
 
 
 @pytest.mark.parametrize('l1, l2, expected_output', [
-    (buildList([2, 4, 3]), buildList([5, 6, 4]), buildList([7, 0, 8])),
-    (buildList([0]), buildList([0]), buildList([0])),
-    (buildList([9, 9, 9, 9, 9, 9, 9]), buildList([9, 9, 9, 9]), buildList([8, 9, 9, 9, 0, 0, 0, 1])),
+    (build_list_node([2, 4, 3]), build_list_node([5, 6, 4]), build_list_node([7, 0, 8])),
+    (build_list_node([0]), build_list_node([0]), build_list_node([0])),
+    (build_list_node([9, 9, 9, 9, 9, 9, 9]), build_list_node([9, 9, 9, 9]), build_list_node([8, 9, 9, 9, 0, 0, 0, 1])),
 ])
 def test_merge(l1, l2, expected_output):
     solution = Solution()
     output = solution.addTwoNumbers(l1, l2)
 
-    assert isSameListNode(output, expected_output)
+    assert isSame_list_node(output, expected_output)
     output = solution.addTwoNumbers2(l1, l2)
 
-    assert isSameListNode(output, expected_output)
+    assert isSame_list_node(output, expected_output)
