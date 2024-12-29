@@ -9,3 +9,9 @@ https://leetcode.com/studyplan/top-interview-150/
 ## coderpad.io
 
 pytest.main(["-s", "-v"])
+
+## solution template
+
+- Intuition
+- Approach
+- Complexity
