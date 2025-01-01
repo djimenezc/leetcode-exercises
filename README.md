@@ -27,3 +27,4 @@ pytest.main(["-s", "-v"])
 - Binary tree: https://www.javatpoint.com/bfs-vs-dfs
 	- DFS: Depth First Search, the stack data structure is used, which works on the LIFO (Last In First Out) principle
 	- BFS: Breadth First Search, level order traversal.[rotate_list.py](src%2FLinked_List%2Fmedium%2Frotate_list.py)
+      - use deque
