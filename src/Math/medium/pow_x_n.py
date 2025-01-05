@@ -31,7 +31,7 @@ import pytest
 
 
 class Solution:
-    def myPow(self, x: float, n: int) -> float:
+    def myPow2(self, x: float, n: int) -> float:
 
         def calc_power(x, n):
             if x == 0:
@@ -54,10 +54,26 @@ class Solution:
 
         return 1 / ans
 
+    def myPow(self, x: float, n: int) -> float:
+
+        # Helper function for recursion
+        def function(base=x, exponent=abs(n)):
+            if exponent == 0:
+                return 1
+            elif exponent % 2 == 0:
+                return function(base * base, exponent // 2)
+            else:
+                return base * function(base * base, (exponent - 1) // 2)
+
+        # Compute the result
+        f = function()
+
+        # Handle positive and negative exponents
+        return float(f) if n >= 0 else 1 / f
 
 @pytest.mark.parametrize('x, n, expected_output', [
     (2.00000, 10, 1024.00000),
-    # (2.10000, 3, 9.26100),
+    #(2.10000, 3, 9.26100),
     (2.00000, -2, 0.25000)
 ])
 def test_merge(x, n, expected_output):
