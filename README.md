@@ -20,7 +20,7 @@ pytest.main(["-s", "-v"])
 
 - Hashmap
 - Stack
-- Heap[average_of_levels_in_binary_tree.py](src%2Fbinary_tree_bfs%2Feasy%2Faverage_of_levels_in_binary_tree.py)
+- Heap [average_of_levels_in_binary_tree.py](src%2Fbinary_tree_bfs%2Feasy%2Faverage_of_levels_in_binary_tree.py)
 - Divide and conquer
 - Two Pointers
 - Binary search
