@@ -61,19 +61,19 @@ class Solution:
 
 
 @pytest.mark.parametrize('nums, expected_output', [
-    ([1, 2, 3], 2),
-    ([1, 2], 1),
-    ([3, 2, 1], 0),
-    ([2, 1], 0),
-    ([1], 0),
-    ([1, 2, 3, 1], 2),
-    ([1, 2, 1, 3, 5, 6, 4], 1)
+    ([1, 2, 3], [2]),
+    ([1, 2], [1]),
+    ([3, 2, 1], [0]),
+    ([2, 1], [0]),
+    ([1], [0]),
+    ([1, 2, 3, 1], [2]),
+    ([1, 2, 1, 3, 5, 6, 4], [1, 5])
 ])
 def test_merge(nums, expected_output):
     solution = Solution()
     output = solution.findPeakElement(nums)
 
-    assert output == expected_output
+    assert output in expected_output
     output = solution.findPeakElement2(nums)
 
-    assert output == expected_output
+    assert output in expected_output
