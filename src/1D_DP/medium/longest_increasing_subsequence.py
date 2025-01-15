@@ -66,6 +66,29 @@ class Solution:
 
         return len(res)
 
+    # To find the length of the longest strictly increasing subsequence,
+    # we can use dynamic programming to keep track of the length of the increasing subsequence ending at each index.
+    # Complexity
+    # Time complexity:
+    # O(n 2) -
+    # We have a nested loop where the outer loop runs for each element, and the inner loop runs for each element
+    #  before the current index.
+    # Space complexity:
+    # O(n) - We use an additional array dp of the same length as the input array.
+    def lengthOfLIS2(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+
+        n = len(nums)
+        dp = [1] * n
+
+        for i in range(1, n):
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+
+        return max(dp)
+
 
 @pytest.mark.parametrize('nums, expected_output', [
     ([1, 5, 6, 3, 10, 4], 4),
@@ -76,5 +99,8 @@ class Solution:
 def test_merge(nums, expected_output):
     solution = Solution()
     output = solution.lengthOfLIS(nums)
+
+    assert output == expected_output
+    output = solution.lengthOfLIS2(nums)
 
     assert output == expected_output
