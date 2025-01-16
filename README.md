@@ -46,6 +46,8 @@ pytest.main(["-s", "-v"])
 - Two Pointers
 - Binary search
 - Greedy Algorithm
+  -  builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate 
+     benefit. Greedy algorithms are used for optimization problems.
 - Dynamic programing
 - Backtracking
 - Binary tree: https://www.javatpoint.com/bfs-vs-dfs
