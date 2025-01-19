@@ -156,9 +156,10 @@ class Solution:
 
         return root
 
+
 @pytest.mark.parametrize('root, expected_output', [
-    # (buildTree([1,2,3,4,5,None,7]), buildTree([1,'#',2,3,'#',4,5,7,'#'])),
-    # (buildTree([]), buildTree([])),
+    # (buildTree([1, 2, 3, 4, 5, None, 7]), buildTree([1, '#', 2, 3, '#', 4, 5, 7, '#'])),
+    (buildTree([]), buildTree([])),
 ])
 def test_merge(root, expected_output):
     solution = Solution()
