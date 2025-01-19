@@ -18,6 +18,8 @@ class Solution:
     # valid window.
     def minWindow(self, s: str, t: str) -> str:
         # Edge Case Handling
+        # If the length of s is smaller than the length of t,
+        # it's impossible for s to contain t. Therefore, return an empty string.
         if len(s) < len(t):
             return ""
 
