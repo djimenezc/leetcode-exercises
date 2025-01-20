@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List
 
 
 class ListNode:
@@ -40,6 +40,16 @@ def print_node(head: Node):
         random_val = current.random.val if current.random else None
         str += f"Node(val={current.val}, random={random_val})"
         print(f"Node(val={current.val}, random={random_val})")
+        current = current.next
+    return str
+
+
+def print_list_node(head: ListNode):
+    current = head
+    str = ''
+    while current:
+        str += f"Node(val={current.val})"
+        print(str)
         current = current.next
     return str
 
