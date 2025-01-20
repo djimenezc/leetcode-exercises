@@ -32,7 +32,7 @@ from typing import Optional, List
 
 import pytest
 
-from src.Binary_Tree_General.Utils import TreeNode, buildTree, isSameTree
+from src.Binary_Tree_General.Utils import TreeNode, build_tree, is_same_tree
 
 
 class Solution:
@@ -102,16 +102,16 @@ class Solution:
 
 
 @pytest.mark.parametrize('nums, expected_output', [
-    ([-10, -3, 0, 5, 9], buildTree([0, -3, 9, -10, None, 5])),
-    ([1, 3], buildTree([3, 1])),
-    ([0, 1, 2], buildTree([1, 0, 2])),
-    ([0, 1, 2, 3, 4, 5], buildTree([3, 1, 5, 0, 2, 4])),
+    ([-10, -3, 0, 5, 9], build_tree([0, -3, 9, -10, None, 5])),
+    ([1, 3], build_tree([3, 1])),
+    ([0, 1, 2], build_tree([1, 0, 2])),
+    ([0, 1, 2, 3, 4, 5], build_tree([3, 1, 5, 0, 2, 4])),
 ])
 def test_merge(nums, expected_output):
     solution = Solution()
     output = solution.sortedArrayToBST(nums)
 
-    assert isSameTree(output, expected_output)
+    assert is_same_tree(output, expected_output)
     # output = solution.sortedArrayToBST2(nums)
     #
     # assert isSameTree(output, expected_output)

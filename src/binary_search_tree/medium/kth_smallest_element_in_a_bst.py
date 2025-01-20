@@ -46,7 +46,7 @@ from typing import Optional
 
 import pytest
 
-from src.Binary_Tree_General.Utils import TreeNode, buildTree
+from src.Binary_Tree_General.Utils import TreeNode, build_tree
 
 
 class Solution:
@@ -96,8 +96,8 @@ class Solution:
 
 
 @pytest.mark.parametrize('root, k, expected_output', [
-    (buildTree([3, 1, 4, None, 2]), 1, 1),
-    (buildTree([5, 3, 6, 2, 4, None, None, 1]), 3, 3),
+    (build_tree([3, 1, 4, None, 2]), 1, 1),
+    (build_tree([5, 3, 6, 2, 4, None, None, 1]), 3, 3),
 ])
 def test_merge(root, k, expected_output):
     solution = Solution()

@@ -8,7 +8,7 @@ class TreeNode:
         self.right = right
 
 
-def buildTree(nodes: list) -> TreeNode:
+def build_tree(nodes: list) -> TreeNode:
     n = len(nodes)
 
     if n == 0:
@@ -33,7 +33,7 @@ def buildTree(nodes: list) -> TreeNode:
     return root
 
 
-def isSameTree(p: TreeNode, q: TreeNode) -> bool:
+def is_same_tree(p: TreeNode, q: TreeNode) -> bool:
     if not p and not q:
         return True  # Both are None
     if not p or not q:
@@ -42,4 +42,4 @@ def isSameTree(p: TreeNode, q: TreeNode) -> bool:
         return False  # Values are different
 
     # Recursively check left and right subtrees
-    return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)
+    return is_same_tree(p.left, q.left) and is_same_tree(p.right, q.right)

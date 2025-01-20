@@ -47,7 +47,7 @@ Push pairs of nodes to the queue for comparison.
 from typing import Optional
 
 import pytest
-from ..Utils import TreeNode, buildTree, isSameTree
+from ..Utils import TreeNode, build_tree, is_same_tree
 from collections import deque
 
 
@@ -85,10 +85,10 @@ class Solution:
 
 
 @pytest.mark.parametrize('root, expected_output', [
-    (buildTree([1, 2, 2]), True),
-    (buildTree([1, 2, 3]), False),
-    (buildTree([1, 2, 2, 3, 4, 4, 3]), True),
-    (buildTree([1, 2, 2, None, 3, None, 3]), False),
+    (build_tree([1, 2, 2]), True),
+    (build_tree([1, 2, 3]), False),
+    (build_tree([1, 2, 2, 3, 4, 4, 3]), True),
+    (build_tree([1, 2, 2, None, 3, None, 3]), False),
 ])
 def test_merge(root, expected_output):
     solution = Solution()

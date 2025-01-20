@@ -29,7 +29,7 @@ from typing import Optional, List
 
 import pytest
 
-from src.Binary_Tree_General.Utils import TreeNode, buildTree
+from src.Binary_Tree_General.Utils import TreeNode, build_tree
 from queue import Queue
 
 class Solution:
@@ -92,9 +92,9 @@ class Solution:
 
 
 @pytest.mark.parametrize('root, expected_output', [
-    (buildTree([3,9,20,None,None,15,7]),  [[3],[20,9],[15,7]]),
-    (buildTree([1]), [[1]]),
-    (buildTree([]), []),
+    (build_tree([3, 9, 20, None, None, 15, 7]), [[3], [20, 9], [15, 7]]),
+    (build_tree([1]), [[1]]),
+    (build_tree([]), []),
 ])
 def test_merge(root, expected_output):
     solution = Solution()

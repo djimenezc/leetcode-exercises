@@ -27,7 +27,7 @@ The number of nodes in the tree is in the range [0, 100].
 from typing import Optional
 
 import pytest
-from ..Utils import TreeNode, buildTree, isSameTree
+from ..Utils import TreeNode, build_tree, is_same_tree
 
 
 class Solution:
@@ -46,13 +46,13 @@ class Solution:
 
 
 @pytest.mark.parametrize('root, expected_output', [
-    (buildTree([1, None, 2]), buildTree([1, 2, None])),
-    (buildTree([2, 1, 3]), buildTree([2, 3, 1])),
-    (buildTree([4, 2, 7, 1, 3, 6, 9]), buildTree([4, 7, 2, 9, 6, 3, 1])),
+    (build_tree([1, None, 2]), build_tree([1, 2, None])),
+    (build_tree([2, 1, 3]), build_tree([2, 3, 1])),
+    (build_tree([4, 2, 7, 1, 3, 6, 9]), build_tree([4, 7, 2, 9, 6, 3, 1])),
     ([], []),
 ])
 def test_merge(root, expected_output):
     solution = Solution()
     output = solution.invertTree(root)
 
-    assert isSameTree(output, expected_output)
+    assert is_same_tree(output, expected_output)

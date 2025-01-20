@@ -59,7 +59,7 @@ from typing import Optional, List
 
 import pytest
 
-from src.Binary_Tree_General.Utils import TreeNode, buildTree, isSameTree
+from src.Binary_Tree_General.Utils import TreeNode, build_tree, is_same_tree
 
 
 class Solution:
@@ -116,14 +116,14 @@ class Solution:
     #       9   20
     #          /  \
     #         15   7
-    ([3, 9, 20, 15, 7], [9, 3, 15, 20, 7], buildTree([3, 9, 20, None, None, 15, 7])),
-    ([-1], [-1], buildTree([-1]),),
+    ([3, 9, 20, 15, 7], [9, 3, 15, 20, 7], build_tree([3, 9, 20, None, None, 15, 7])),
+    ([-1], [-1], build_tree([-1]),),
 ])
 def test_merge(preorder, inorder, expected_output):
     solution = Solution()
     output = solution.buildTree(preorder, inorder)
 
-    assert isSameTree(output, expected_output)
+    assert is_same_tree(output, expected_output)
     output = solution.buildTree2(preorder, inorder)
 
-    assert isSameTree(output, expected_output)
+    assert is_same_tree(output, expected_output)

@@ -31,7 +31,7 @@ Follow up: Can you flatten the tree in-place (with O(1) extra space)?
 
 import pytest
 
-from src.Binary_Tree_General.Utils import TreeNode, buildTree, isSameTree
+from src.Binary_Tree_General.Utils import TreeNode, build_tree, is_same_tree
 
 
 class Solution:
@@ -57,11 +57,11 @@ class Solution:
 
 
 @pytest.mark.parametrize('root, expected_output', [
-    (buildTree([1, 2, 5, 3, 4, None, 6]), buildTree([1, None, 2, None, 3, None, 4, None, 5, None, 6])),
-    (buildTree([]), buildTree([])),
-    (buildTree([0]), buildTree([0])),
+    (build_tree([1, 2, 5, 3, 4, None, 6]), build_tree([1, None, 2, None, 3, None, 4, None, 5, None, 6])),
+    (build_tree([]), build_tree([])),
+    (build_tree([0]), build_tree([0])),
 ])
 def test_merge(root, expected_output):
     solution = Solution()
     solution.flatten(root)
-    assert isSameTree(root, expected_output)
+    assert is_same_tree(root, expected_output)

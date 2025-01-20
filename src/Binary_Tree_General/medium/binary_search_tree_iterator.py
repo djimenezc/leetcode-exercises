@@ -47,7 +47,7 @@ from typing import Optional
 
 import pytest
 
-from src.Binary_Tree_General.Utils import TreeNode, buildTree
+from src.Binary_Tree_General.Utils import TreeNode, build_tree
 
 
 # Use stack + on-the-go push and pop
@@ -78,10 +78,10 @@ class BSTIterator:
 
 
 @pytest.mark.parametrize('root, expected_output', [
-    (buildTree([1, 2, 3]), 25),
+    (build_tree([1, 2, 3]), 25),
 ])
 def test_merge(root, expected_output):
-    bst_iterator = BSTIterator(buildTree([7, 3, 15, None, None, 9, 20]))
+    bst_iterator = BSTIterator(build_tree([7, 3, 15, None, None, 9, 20]))
     assert bst_iterator.next() == 3  # return 3
     assert bst_iterator.next() == 7  # return 7
     assert bst_iterator.hasNext() is True  # return True

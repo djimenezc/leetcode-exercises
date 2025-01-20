@@ -32,7 +32,7 @@ from typing import Optional
 
 import pytest
 
-from ..Utils import TreeNode, buildTree
+from ..Utils import TreeNode, build_tree
 
 
 class Solution:
@@ -71,11 +71,11 @@ class Solution:
 
 
 @pytest.mark.parametrize('root, expected_output', [
-    (buildTree([1, 2]), 2),
-    (buildTree([1, 2, 3]), 3),
-    (buildTree([1, 2, 3, 4, 5, 6]), 6),
-    (buildTree([]), 0),
-    (buildTree([1]), 1),
+    (build_tree([1, 2]), 2),
+    (build_tree([1, 2, 3]), 3),
+    (build_tree([1, 2, 3, 4, 5, 6]), 6),
+    (build_tree([]), 0),
+    (build_tree([1]), 1),
 ])
 def test_merge(root, expected_output):
     solution = Solution()

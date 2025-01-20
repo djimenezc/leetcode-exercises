@@ -65,7 +65,7 @@ from typing import Optional, List
 
 import pytest
 
-from src.Binary_Tree_General.Utils import TreeNode, buildTree, isSameTree
+from src.Binary_Tree_General.Utils import TreeNode, build_tree, is_same_tree
 
 
 class Solution:
@@ -95,10 +95,10 @@ class Solution:
 
 
 @pytest.mark.parametrize('root, expected_output', [
-    (buildTree([1, 2, 3, None, 5, None, 4]), [1, 3, 4]),
-    (buildTree([1, 2, 3, 4, None, None, None, 5]), [1, 3, 4, 5]),
-    (buildTree([1, None, 3]), [1, 3]),
-    (buildTree([]), []),
+    (build_tree([1, 2, 3, None, 5, None, 4]), [1, 3, 4]),
+    (build_tree([1, 2, 3, 4, None, None, None, 5]), [1, 3, 4, 5]),
+    (build_tree([1, None, 3]), [1, 3]),
+    (build_tree([]), []),
 ])
 def test_merge(root, expected_output):
     solution = Solution()

@@ -37,7 +37,7 @@ from typing import Optional
 
 import pytest
 
-from ..Utils import TreeNode, buildTree
+from ..Utils import TreeNode, build_tree
 
 
 class Solution:
@@ -63,12 +63,12 @@ class Solution:
 
 
 @pytest.mark.parametrize('root, targetSum, expected_output', [
-    (buildTree([1]), 1, True),
-    (buildTree([1, 2]), 1, False),
-    (buildTree([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, 1]), 22, True),
-    (buildTree([5, None, 5]), 10, True),
-    (buildTree([1, 2, 3]), 5, False),
-    (buildTree([]), 0, False),
+    (build_tree([1]), 1, True),
+    (build_tree([1, 2]), 1, False),
+    (build_tree([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, 1]), 22, True),
+    (build_tree([5, None, 5]), 10, True),
+    (build_tree([1, 2, 3]), 5, False),
+    (build_tree([]), 0, False),
 ])
 def test_merge(root, targetSum, expected_output):
     solution = Solution()

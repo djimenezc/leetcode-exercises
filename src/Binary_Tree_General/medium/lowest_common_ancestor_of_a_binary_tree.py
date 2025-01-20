@@ -35,7 +35,7 @@ from typing import Optional, List
 
 import pytest
 
-from src.Binary_Tree_General.Utils import TreeNode, buildTree
+from src.Binary_Tree_General.Utils import TreeNode, build_tree
 
 
 class Solution:
@@ -145,9 +145,9 @@ class Solution:
 
 
 @pytest.mark.parametrize('root, p, q, expected_output', [
-    (buildTree([3, 5, 1, 6, 2, 0, 8, None, None, 7, 4]), buildTree([5]), buildTree([1]), 3),
-    (buildTree([3, 5, 1, 6, 2, 0, 8, None, None, 7, 4]), buildTree([5]), buildTree([4]), 5),
-    (buildTree([1, 2]), buildTree([1]), buildTree([2]), 1),
+    (build_tree([3, 5, 1, 6, 2, 0, 8, None, None, 7, 4]), build_tree([5]), build_tree([1]), 3),
+    (build_tree([3, 5, 1, 6, 2, 0, 8, None, None, 7, 4]), build_tree([5]), build_tree([4]), 5),
+    (build_tree([1, 2]), build_tree([1]), build_tree([2]), 1),
 ])
 def test_merge(root, p, q, expected_output):
     solution = Solution()
