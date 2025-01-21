@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 
 class ListNode:
@@ -54,7 +54,10 @@ def print_list_node(head: ListNode):
     return str
 
 
-def build_list_node(nums: List) -> ListNode:
+def build_list_node(nums: Optional[List]) -> Optional[ListNode]:
+    if not nums or len(nums) ==0:
+        return None
+
     head = ListNode(nums[0])
     current_node = head
     for i in range(1, len(nums)):
