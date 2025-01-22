@@ -49,6 +49,7 @@ from typing import List
 import pytest
 
 
+# https://leetcode.com/problems/minimum-cost-to-make-arrays-identical/description/
 class Solution:
     def minCost1(self, arr: List[int], brr: List[int], k: int) -> int:
         res = 0
