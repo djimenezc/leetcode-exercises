@@ -60,19 +60,30 @@ class Solution:
         index1 = 0
         index2 = 0
 
+        # nums1 does not have any element to merge
+        # copy nums2
         if m == 0:
-            for i in range(0, len(nums2)):
+            for i in range(0, n):
                 nums1[i] = nums2[i]
         elif n != 0:
+            # i variable indicates the next candidate spot to insert a number from nums2
             for i in range(0, n + m):
+                # end of nums2 has been reached
                 if index2 >= n:
                     break
-                if (nums1[i] == 0 and index1 >= m) or nums1[i] > nums2[index2]:
+
+                # if the pointer on nums1 has reached the end, insert the following element from nums2
+                if (index1 >= m) or nums1[i] > nums2[index2]:
+                    # insert before i position
                     nums1.insert(i, nums2[index2])
-                    index2 = index2 + 1
+                    index2 += 1
+                    # keep the length of nums1 n+m
                     nums1.pop()
+                # move the pointer in nums1
                 else:
                     index1 = index1 + 1
+
+        # if n == 0 return nums1
 
 
 @pytest.mark.parametrize('nums1,m,nums2,n, expected', [
