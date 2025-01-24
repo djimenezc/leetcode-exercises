@@ -2,7 +2,7 @@ from typing import List
 
 import pytest
 
-'''
+"""
 Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
 
 Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
@@ -49,7 +49,7 @@ Constraints:
 0 <= nums.length <= 100
 0 <= nums[i] <= 50
 0 <= val <= 100
-'''
+"""
 
 
 class Solution:
@@ -62,7 +62,17 @@ class Solution:
                 nums.pop(k)
                 nums.append(val)
             else:
-                k = k + 1
+                k += 1
+
+        return k
+
+    def removeElement2(self, nums: List[int], val: int) -> int:
+        k = 0
+
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[k] = nums[i]
+                k += 1
 
         return k
 
@@ -75,6 +85,9 @@ class Solution:
 def test_merge(nums, val, expected, nums_expect):
     solution = Solution()
     k = solution.removeElement(nums, val)
+
+    assert k == expected
+    k = solution.removeElement2(nums, val)
 
     assert k == expected
     # nums[:k].sort()
