@@ -66,19 +66,53 @@ class Solution:
 
     def romanToInt(self, s: str) -> int:
         res = 0
+        # start from the right of the string to evaluate the chars
         i = len(s) - 1
 
+        # stop after passing position 0
         while i > -1:
             if i != 0 and (s[i] == 'V' and s[i - 1] == 'I' or s[i] == 'X' and s[i - 1] == 'I' or
                            s[i] == 'L' and s[i - 1] == 'X' or s[i] == 'C' and s[i - 1] == 'X' or
                            s[i] == 'M' and s[i - 1] == 'C' or s[i] == 'D' and s[i - 1] == 'C'):
-                res = res + self.values.get(s[i]) - self.values.get(s[i - 1])
+                res += self.values.get(s[i]) - self.values.get(s[i - 1])
                 i = i - 2
             else:
-                res = res + self.values.get(s[i])
+                res += self.values.get(s[i])
                 i = i - 1
 
         return res
+
+    # Basically, you just need to convert either one or two characters into a number to get the answer.
+    #
+    # Complexity
+    # Time complexity: O(n)
+    # n is the length of the input string.
+    #
+    # Space complexity: O(1)
+    # The dictionary roman always has a fixed size of seven key-value pairs,
+    # regardless of the input size, so it uses constant space.
+    def romanToInt2(self, s: str) -> int:
+        res = 0
+        roman = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        }
+
+        # loop through the string two characters at a time, shifting by one each time.
+        # The zip() function returns a zip object, which is an iterator of tuples where the first item in each passed
+        # iterator is paired together, and then the second item in each passed iterator are paired together etc.
+        for a, b in zip(s, s[1:]):
+            if roman[a] < roman[b]:
+                res -= roman[a]
+            else:
+                res += roman[a]
+
+        return res + roman[s[-1]]
 
 
 @pytest.mark.parametrize('s, k', [
@@ -99,5 +133,8 @@ class Solution:
 def test_merge(s, k):
     solution = Solution()
     output = solution.romanToInt(s)
+
+    assert output == k
+    output = solution.romanToInt2(s)
 
     assert output == k

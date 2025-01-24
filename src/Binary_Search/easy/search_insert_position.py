@@ -1,5 +1,6 @@
 """
-Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+Given a sorted array of distinct integers and a target value, return the index if the target is found. If not,
+return the index where it would be if it were inserted in order.
 
 You must write an algorithm with O(log n) runtime complexity.
 
@@ -37,19 +38,25 @@ class Solution:
     # It uses binary search to quickly narrow down the position of target.
     # If the loop exits without finding target, low will be the index where
     # target can be inserted to maintain the sorted order.
+    # Complexity
+    # Time complexity: O(logn)
+    # Space complexity: O(1)
     def searchInsert(self, nums: List[int], target: int) -> int:
         high = len(nums) - 1
         low = 0
 
         while low <= high:
             mid = (low + high) // 2
+            # target found
             if nums[mid] == target:
                 return mid
+            # element has to be in the low half
             elif nums[mid] > target:
                 high = mid - 1
             else:
                 low = mid + 1
             print(mid, low, high)
+
         return low
 
 
