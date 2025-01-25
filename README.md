@@ -52,6 +52,7 @@ pytest.main()
     for every node, the value of its children is greater than or equal to its own value. 
   - Heaps are usually used to implement priority queues, where the smallest (or largest) element is always at the root 
     of the tree.
+  - use heapq.heapify(heap)
 - Queue (FIFO)
   - The queue is a basic data structure in which new elements are inserted at the 
     back but old elements are removed from the front
@@ -60,6 +61,8 @@ pytest.main()
     solving them individually and then merging them to find solution to the original problem.
   - divide -> conquer -> merge
 - Two Pointers
+  - used for Two Sum in Sorted Arrays, Closest Two Sum, Three Sum, Four Sum, Trapping Rain Water 
+  - 
 - Binary search
   - search algorithm used to find the position of a target value within a sorted array
   - It works by repeatedly dividing the search interval in half until the target value is found or the interval is empty.
@@ -76,8 +79,7 @@ pytest.main()
 	- DFS: Depth First Search, the stack data structure is used, which works on the LIFO (Last In First Out) principle
 	- BFS: Breadth First Search, level order traversal.[rotate_list.py](src%2FLinked_List%2Fmedium%2Frotate_list.py)
       - use deque
-- Heap
-  - use heapq.heapify(heap)
+  
 
 ## Data structures
 - Hash Tables
