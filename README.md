@@ -41,6 +41,9 @@ pytest.main()
 ## Techniques
 
 - Hashmap
+  - Hash maps are indexed data structures. A hash map makes use of a hash function to compute an index with a 
+    key into an array of buckets or slots.
+  - Its value is mapped to the bucket with the corresponding index. The key is unique and immutable.
 - Stack (LIFO)
   - The stack is a basic data structure in which the insertion of new elements takes place at the top 
     and deletion of elements also takes place from the top
