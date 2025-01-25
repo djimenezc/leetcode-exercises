@@ -9,6 +9,7 @@ https://leetcode.com/studyplan/top-interview-150/
 
 ## coderpad.io
 
+## Code Template: 
 ```python
 import pytest
 
@@ -40,29 +41,12 @@ pytest.main()
 
 ## Techniques
 
-- Hashmap
-  - Hash maps are indexed data structures. A hash map makes use of a hash function to compute an index with a 
-    key into an array of buckets or slots.
-  - Its value is mapped to the bucket with the corresponding index. The key is unique and immutable.
-- Stack (LIFO)
-  - The stack is a basic data structure in which the insertion of new elements takes place at the top 
-    and deletion of elements also takes place from the top
-- Heap [average_of_levels_in_binary_tree.py](src%2Fbinary_tree_bfs%2Feasy%2Faverage_of_levels_in_binary_tree.py)
-  - A Heap is a complete binary tree data structure that satisfies the heap property: 
-    for every node, the value of its children is greater than or equal to its own value. 
-  - Heaps are usually used to implement priority queues, where the smallest (or largest) element is always at the root 
-    of the tree.
-  - use heapq.heapify(heap)
-- Queue (FIFO)
-  - The queue is a basic data structure in which new elements are inserted at the 
-    back but old elements are removed from the front
 - Divide and conquer
   - problem-solving technique used to solve problems by dividing the main problem into sub-problems, 
     solving them individually and then merging them to find solution to the original problem.
   - divide -> conquer -> merge
 - Two Pointers
   - used for Two Sum in Sorted Arrays, Closest Two Sum, Three Sum, Four Sum, Trapping Rain Water 
-  - 
 - Binary search
   - search algorithm used to find the position of a target value within a sorted array
   - It works by repeatedly dividing the search interval in half until the target value is found or the interval is empty.
@@ -71,7 +55,6 @@ pytest.main()
 - Greedy Algorithm
   -  builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate 
      benefit. Greedy algorithms are used for optimization problems.
-- Dynamic programing
 - Backtracking
   - Backtracking is like trying different paths, and when you hit a dead end, 
     you backtrack to the last choice and try a different route.
@@ -79,18 +62,72 @@ pytest.main()
 	- DFS: Depth First Search, the stack data structure is used, which works on the LIFO (Last In First Out) principle
 	- BFS: Breadth First Search, level order traversal.[rotate_list.py](src%2FLinked_List%2Fmedium%2Frotate_list.py)
       - use deque
+- Dynamic programing
+  - 
+- Kadanes algorithm
+  - 
+- Sliding windows
+  - problems in which a fixed or variable-size window is moved through a data structure, typically an array or string, 
+  - to solve problems efficiently based on continuous subsets of elements. This technique is used when we need to 
+  - find subarrays or substrings according to a given set of conditions.
+- Intervals
+  - 
   
 
 ## Data structures
+
+![img.png](img.png)
+
+- Hashmap
+  - Hash maps are indexed data structures. A hash map makes use of a hash function to compute an index with a 
+    key into an array of buckets or slots.
+  - Its value is mapped to the bucket with the corresponding index. The key is unique and immutable.
+- Stacks (LIFO)
+  - The stack is a basic data structure in which the insertion of new elements takes place at the top 
+    and deletion of elements also takes place from the top
+- Heaps [average_of_levels_in_binary_tree.py](src%2Fbinary_tree_bfs%2Feasy%2Faverage_of_levels_in_binary_tree.py)
+  - A Heap is a complete binary tree data structure that satisfies the heap property: 
+    for every node, the value of its children is greater than or equal to its own value. 
+  - Heaps are usually used to implement priority queues, where the smallest (or largest) element is always at the root 
+    of the tree.
+  - use heapq.heapify(heap)
+- Queues (FIFO)
+  - The queue is a basic data structure in which new elements are inserted at the 
+    back but old elements are removed from the front
 - Hash Tables
+  - Hashtable is synchronized, whereas HashMap is not.
+  - Hashtable does not allow null keys or values. HashMap allows one null key and any number of null values.
+  - One of HashMap's subclasses is LinkedHashMap, so in the event that you'd want predictable iteration order 
+    (which is insertion order by default), you could easily swap out the HashMap for a LinkedHashMap. 
+     This wouldn't be as easy if you were using Hashtable.
 - Linked Lists
-- Stacks
-- Queues
+  - It mainly allows efficient insertion and deletion operations compared to arrays. Like arrays, it is also used to 
+    implement other data structures like stack, queue and deque.
+  - Data Structure: Non-contiguous
+    Memory Allocation: Typically allocated one by one to individual elements
+    Insertion/Deletion: Efficient
+    Access: Sequential
 - Trees
+  - hierarchical structure that is used to represent and organize data in the form of parent child relationship. 
+  - The following are some real world situations which are naturally a tree.
+    - Folder structure in an operating system.
+    - Tag structure in an HTML (root tag the as html tag) or XML document.
+  - The topmost node of the tree is called the root, and the nodes below it are called the child nodes.
+    Each node can have multiple child nodes, and these child nodes can also have their own child nodes, 
+    forming a recursive structure.
 - Trie
+  - Tree based data structure that is used for storing some collection of strings and performing 
+    efficient search operations on them.
+  - Representation of trie is similar to a tree data structure with a root node connected to its elements in a 
+    structured way with leaf nodes representing the end.
+  - Applications
+    - Autocomplete
+    - Spell checking
 - Graphs
-- Vectors
-- Heaps
+  - non-linear data structure consisting of vertices and edges
+  - The vertices are sometimes also referred to as nodes and the edges are lines or arcs that connect any two nodes 
+    in the graph. set of vertices( V ) and a set of edges( E ). The graph is denoted by G(V, E).
+
 
 ## Complexity
 ### O(1)
@@ -142,7 +179,7 @@ Also called quadratic time.
 
 - Nested loops, e.g., visiting each matrix entry
 - Many brute force solutions
-- Typically for n ≤ 3000
+- Typically, for n ≤ 3000
 
 ### O(2^N)
 Grows very rapidly. Often requires memoization to avoid repeated computations and reduce complexity.
