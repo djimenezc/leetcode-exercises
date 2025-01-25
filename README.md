@@ -15,17 +15,17 @@ import pytest
 
 
 class Solution:
-    def isSubsequence(self, s: str, t: str) -> bool:
+    def isSubsequence(self, s: str) -> bool:
 
         return True
 
 
-@pytest.mark.parametrize('s, t, expected_output', [
-    ("aaaaaa", "bbaaaa", True),
+@pytest.mark.parametrize('s, expected_output', [
+    ("aaaaaa", True),
 ])
-def test_merge(s, t, expected_output):
+def test(s, expected_output):
     solution = Solution()
-    output = solution.isSubsequence(s, t)
+    output = solution.isSubsequence(s)
 
     assert output == expected_output
     
@@ -63,15 +63,35 @@ pytest.main()
 	- BFS: Breadth First Search, level order traversal.[rotate_list.py](src%2FLinked_List%2Fmedium%2Frotate_list.py)
       - use deque
 - Dynamic programing
-  - 
+  - mainly an optimization over plain recursion
+  - simply store the results of subproblems so that we do not have to re-compute them when needed later
+  - typically reduces time complexities from exponential to polynomial.
+  - store solutions to subproblems so that each is solved only once.
+  - two ways to store the results, one is top down (or memoization) and other is bottom up (or tabulation).
+  - used when there are overlapping subproblems (the same subproblem is executed multiple times)
+    - Memoization:
+      - Top-down approach
+      - Stores the results of function calls in a table.
+      - Recursive implementation
+      - Entries are filled when needed.
+    - Tabulation:
+      - Bottom-up approach
+      - Stores the results of subproblems in a table
+      - Iterative implementation
+      - Entries are filled in a bottom-up manner from the smallest size to the final size.
 - Kadanes algorithm
-  - 
+  - Maximum Subarray
+  - Kadane’s algorithm is to traverse over the array from left to right and for each element, find the maximum sum among
+    all subarrays ending at that element. The result will be the maximum of all these values. 
+  - O(n) Time and O(1) Space
 - Sliding windows
   - problems in which a fixed or variable-size window is moved through a data structure, typically an array or string, 
   - to solve problems efficiently based on continuous subsets of elements. This technique is used when we need to 
   - find subarrays or substrings according to a given set of conditions.
 - Intervals
-  - 
+  - subset of array questions where you are given an array of two-element arrays (an interval) and the two values 
+    represent a start and an end value
+  - A common routine for interval questions is to sort the array of intervals by each interval's starting value.
   
 
 ## Data structures
@@ -130,6 +150,9 @@ pytest.main()
 
 
 ## Complexity
+
+![img_1.png](img_1.png)
+
 ### O(1)
 Constant time complexity. Could be
 
