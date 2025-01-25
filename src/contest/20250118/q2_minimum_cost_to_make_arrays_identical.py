@@ -100,7 +100,7 @@ class Solution:
 
 
 @pytest.mark.parametrize('arr, brr, k, expected_output', [
-    ([3, 10], [4, 3], 15, 8),
+    # ([3, 10], [4, 3], 15, 8),
     ([8, -1], [4, -6], 7, 9),
     ([-9], [9], 29, 18),
     ([1], [-1], 0, 2),

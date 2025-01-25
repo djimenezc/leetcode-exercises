@@ -85,7 +85,14 @@ pytest.main()
 - Binary tree: https://www.javatpoint.com/bfs-vs-dfs
 	- DFS: Depth First Search, the stack data structure is used, which works on the LIFO (Last In First Out) principle
 	- BFS: Breadth First Search, level order traversal.[rotate_list.py](src%2FLinked_List%2Fmedium%2Frotate_list.py)
+      
       - use deque
+- Graph:
+  - BFS: Breadth First Search, level order traversal
+    - Breadth First Search (BFS) is a fundamental graph traversal algorithm. It begins with a node, then first 
+      traverses all its adjacent. Once all adjacent are visited, then their adjacent are traversed.
+    - closest vertices are visited before others. We mainly traverse vertices level by level
+    - Time Complexity: O(V+E), where V is the number of nodes and E is the number of edges. Auxiliary Space: O(V)
 - Dynamic programing
   - mainly an optimization over plain recursion
   - simply store the results of subproblems so that we do not have to re-compute them when needed later
