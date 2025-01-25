@@ -53,6 +53,9 @@ pytest.main()
   - The queue is a basic data structure in which new elements are inserted at the 
     back but old elements are removed from the front
 - Divide and conquer
+  - problem-solving technique used to solve problems by dividing the main problem into sub-problems, 
+    solving them individually and then merging them to find solution to the original problem.
+  - divide -> conquer -> merge
 - Two Pointers
 - Binary search
   - search algorithm used to find the position of a target value within a sorted array
