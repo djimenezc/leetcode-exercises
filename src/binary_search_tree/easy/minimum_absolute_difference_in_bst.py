@@ -68,9 +68,10 @@ class Solution:
         min_difference: float = float("inf")
         for i in range(1, len(values)):
             min_difference = min(min_difference, values[i] - values[i - 1])
-            if min_difference == 1: break
+            if min_difference == 1:
+                break
 
-        return min_difference
+        return int(min_difference)
 
 
 @pytest.mark.parametrize('root, expected_output', [

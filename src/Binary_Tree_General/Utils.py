@@ -1,4 +1,5 @@
 import collections
+from typing import Optional
 
 
 class TreeNode:
@@ -8,27 +9,27 @@ class TreeNode:
         self.right = right
 
 
-def build_tree(nodes: list) -> TreeNode:
+def build_tree(nodes: list) -> Optional[TreeNode]:
     n = len(nodes)
 
     if n == 0:
         return None
 
-    parentStack = collections.deque()
+    parent_stack = collections.deque()
     root = TreeNode(nodes[0])
-    curParent = root
+    cur_parent = root
 
     for i in range(1, n):
         if i % 2 == 1:
             if nodes[i] is not None:
-                curParent.left = TreeNode(nodes[i])
-                parentStack.append(curParent.left)
+                cur_parent.left = TreeNode(nodes[i])
+                parent_stack.append(cur_parent.left)
         else:
             if nodes[i] is not None:
-                curParent.right = TreeNode(nodes[i])
-                parentStack.append(curParent.right)
+                cur_parent.right = TreeNode(nodes[i])
+                parent_stack.append(cur_parent.right)
 
-            curParent = parentStack.popleft()
+            cur_parent = parent_stack.popleft()
 
     return root
 

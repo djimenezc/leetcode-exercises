@@ -41,16 +41,31 @@ pytest.main()
 ## Techniques
 
 - Hashmap
-- Stack
+- Stack (LIFO)
+  - The stack is a basic data structure in which the insertion of new elements takes place at the top 
+    and deletion of elements also takes place from the top
 - Heap [average_of_levels_in_binary_tree.py](src%2Fbinary_tree_bfs%2Feasy%2Faverage_of_levels_in_binary_tree.py)
+  - A Heap is a complete binary tree data structure that satisfies the heap property: 
+    for every node, the value of its children is greater than or equal to its own value. 
+  - Heaps are usually used to implement priority queues, where the smallest (or largest) element is always at the root 
+    of the tree.
+- Queue (FIFO)
+  - The queue is a basic data structure in which new elements are inserted at the 
+    back but old elements are removed from the front
 - Divide and conquer
 - Two Pointers
 - Binary search
+  - search algorithm used to find the position of a target value within a sorted array
+  - It works by repeatedly dividing the search interval in half until the target value is found or the interval is empty.
+  - The search interval is halved by comparing the target element with the middle value of the search space.
+  - Time Complexity: O(log N) Auxiliary Space: O(1)
 - Greedy Algorithm
   -  builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate 
      benefit. Greedy algorithms are used for optimization problems.
 - Dynamic programing
 - Backtracking
+  - Backtracking is like trying different paths, and when you hit a dead end, 
+    you backtrack to the last choice and try a different route.
 - Binary tree: https://www.javatpoint.com/bfs-vs-dfs
 	- DFS: Depth First Search, the stack data structure is used, which works on the LIFO (Last In First Out) principle
 	- BFS: Breadth First Search, level order traversal.[rotate_list.py](src%2FLinked_List%2Fmedium%2Frotate_list.py)
@@ -235,6 +250,7 @@ then chances are we can build a graph and use BFS or Union Find.
 - https://www.w3schools.com/python/default.asp
 - https://realpython.com/sorting-algorithms-python/
 - https://docs.python.org/3/reference/index.html
+- https://www.geeksforgeeks.org/heap-data-structure/
 
 ## Videos
 - [Algorithms](https://www.youtube.com/watch?v=KEEKn7Me-ms&list=PLI1t_8YX-ApvMthLj56t1Rf-Buio5Y8KL)
