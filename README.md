@@ -33,8 +33,32 @@ def test(s, expected_output):
 pytest.main()
 ```
 
-## solution template
+```python
+import pytest
 
+
+class Solution:
+    def isSubsequence(self, s: str) -> bool:
+
+        return True
+
+solution = Solution()
+
+@pytest.mark.parametrize('s, expected_output', [
+    ("aaaaaa", True),
+])
+class TestClass:
+    def test_1(self, s, expected_output):
+      output = solution.isSubsequence(s)
+      assert output == expected_output
+    
+    
+# pytest.main(["-s", "-v"])
+pytest.main()
+```
+
+## solution template
+[search_insert_position.py](src%2FBinary_Search%2Feasy%2Fsearch_insert_position.py)
 - Intuition
 - Approach
 - Complexity
@@ -309,6 +333,7 @@ then chances are we can build a graph and use BFS or Union Find.
 - Greedy: sort by start/end time and then go through sorted intervals Interval Pattern
 
 ## Links:
+- https://docs.pytest.org/en/stable/how-to/parametrize.html
 - https://www.crackingthecodinginterview.com/uploads/6/5/2/8/6528028/cracking_the_coding_skills_-_v6.pdf
 - https://www.geeksforgeeks.org/dynamic-programming/
 - https://www.geeksforgeeks.org/introduction-to-greedy-algorithm-data-structures-and-algorithm-tutorials/

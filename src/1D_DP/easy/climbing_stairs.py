@@ -37,7 +37,8 @@ class Solution:
     # array-based implementation.
     def climbStairs(self, n: int) -> int:
 
-        if n <= 3: return n
+        if n <= 3:
+            return n
 
         prev1 = 3
         prev2 = 2
@@ -58,7 +59,11 @@ class Solution:
     def climbStairs0(self, n: int) -> int:
         if n == 0 or n == 1:
             return 1
-        return self.climbStairs(n - 1) + self.climbStairs(n - 2)
+
+        prev_1 = self.climbStairs0(n - 1)
+        prev_2 = self.climbStairs0(n - 2)
+
+        return prev_1 + prev_2
 
     # Memoization
     # Explanation: The memoization solution improves the recursive solution by introducing memoization,
@@ -106,21 +111,34 @@ class Solution:
         return curr
 
 
+solution = Solution()
+
+
 @pytest.mark.parametrize('n, expected_output', [
+    # (0, 1),
+    (1, 1),
     (2, 2),
     (3, 3),
+    (4, 5)
 ])
-def test_merge(n, expected_output):
-    solution = Solution()
-    output = solution.climbStairs(n)
+class TestClass:
 
-    assert output == expected_output
-    output = solution.climbStairs2(n)
+    def test_1(self, n, expected_output):
+        output = solution.climbStairs(n)
+        assert output == expected_output
 
-    assert output == expected_output
-    output = solution.climbStairs3(n)
+    def test_2(self, n, expected_output):
+        output = solution.climbStairs2(n)
+        assert output == expected_output
 
-    assert output == expected_output
-    output = solution.climbStairs4(n)
+    def test_3(self, n, expected_output):
+        output = solution.climbStairs3(n)
+        assert output == expected_output
 
-    assert output == expected_output
+    def test_4(self, n, expected_output):
+        output = solution.climbStairs4(n)
+        assert output == expected_output
+
+    def test_0(self, n, expected_output):
+        output = solution.climbStairs0(n)
+        assert output == expected_output
