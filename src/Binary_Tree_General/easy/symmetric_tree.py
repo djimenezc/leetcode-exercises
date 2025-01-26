@@ -1,8 +1,6 @@
 """
 Given the root of a binary tree, invert the tree, and return its root.
 
-
-
 Example 1:
 
 
@@ -81,6 +79,7 @@ class Solution:
             queue.append(t2.right)
             queue.append(t1.right)
             queue.append(t2.left)
+
         return True
 
 

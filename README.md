@@ -1,15 +1,14 @@
 # leetcode-exercises
 
-Repository with multiple solutions in Python to resolve 
-Leetcode exercises.
-
+Repository with multiple solutions in Python to resolve Leetcode exercises
 https://leetcode.com/studyplan/top-interview-150/
 
+##
 --log-cli-level=10
 
 ## coderpad.io
 
-## Code Template: 
+### Code Template: 
 ```python
 import pytest
 
@@ -57,7 +56,7 @@ class TestClass:
 pytest.main()
 ```
 
-## solution template
+### solution template
 [template.py](src%2Ftemplate.py)
 - Intuition
 - Approach
@@ -503,6 +502,54 @@ then chances are we can build a graph and use BFS or Union Find.
 
 "Interval"
 - Greedy: sort by start/end time and then go through sorted intervals Interval Pattern
+
+## Python Operators:
+
+### Arithmetic Operator
+```python
+a = 15
+b = 4
+
+# Addition
+print("Addition:", a + b)  
+
+# Subtraction
+print("Subtraction:", a - b) 
+
+# Multiplication
+print("Multiplication:", a * b)  
+
+# Division
+print("Division:", a / b) 
+
+# Floor Division
+print("Floor Division:", a // b)  
+
+# Modulus
+print("Modulus:", a % b) 
+
+# Exponentiation
+print("Exponentiation:", a ** b)
+```
+
+### Bitwise Operators in Python
+- Bitwise NOT
+- Bitwise Shift
+- Bitwise AND
+- Bitwise XOR
+- Bitwise OR
+
+```python
+a = 10
+b = 4
+
+print(a & b) # 0 
+print(a | b) # 14
+print(~a) # -11
+print(a ^ b) # 14
+print(a >> 2) # 2
+print(a << 2) # 40
+```
 
 ## Links:
 - https://docs.pytest.org/en/stable/how-to/parametrize.html

@@ -1,8 +1,6 @@
 """
 Given two binary strings a and b, return their sum as a binary string.
 
-
-
 Example 1:
 
 Input: a = "11", b = "1"
@@ -48,10 +46,14 @@ class Solution:
         return s
 
     # slower
+    #  Iterate from the end
+    # Time complexity: O(max(a,b))
+    # Space complexity: O(max(a,b))
     def addBinary2(self, a: str, b: str) -> str:
         i, j = len(a) - 1, len(b) - 1
         carry = 0
         result = []
+
         while i >= 0 or j >= 0 or carry:
             total = carry
             if i >= 0:
@@ -62,18 +64,23 @@ class Solution:
                 j -= 1
             result.append(str(total % 2))
             carry = total // 2
+
         return ''.join(result[::-1])
+
+
+solution = Solution()
 
 
 @pytest.mark.parametrize('a, b, expected_output', [
     ("11", "1", '100'),
     ("1010", "1011", '10101'),
 ])
-def test_merge(a, b, expected_output):
-    solution = Solution()
-    output = solution.addBinary(a, b)
+class TestCase:
+    def test_0(self, a, b, expected_output):
+        output = solution.addBinary(a, b)
+        assert output == expected_output
 
-    assert output == expected_output
-    output = solution.addBinary2(a, b)
+    def test_1(self, a, b, expected_output):
+        output = solution.addBinary2(a, b)
+        assert output == expected_output
 
-    assert output == expected_output
