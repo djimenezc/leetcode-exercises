@@ -85,7 +85,6 @@ pytest.main()
 - Binary tree: https://www.javatpoint.com/bfs-vs-dfs
 	- DFS: Depth First Search, the stack data structure is used, which works on the LIFO (Last In First Out) principle
 	- BFS: Breadth First Search, level order traversal.[rotate_list.py](src%2FLinked_List%2Fmedium%2Frotate_list.py)
-      
       - use deque
 - Graph:
   - BFS: Breadth First Search, level order traversal
@@ -93,6 +92,16 @@ pytest.main()
       traverses all its adjacent. Once all adjacent are visited, then their adjacent are traversed.
     - closest vertices are visited before others. We mainly traverse vertices level by level
     - Time Complexity: O(V+E), where V is the number of nodes and E is the number of edges. Auxiliary Space: O(V)
+    - use deque
+  - DFS: Depth First Search
+    - we traverse all adjacent vertices one by one. When we traverse an adjacent vertex, we completely finish 
+      the traversal of all vertices reachable through that adjacent vertex.
+    - unlike trees, graphs may contain cycles
+    - use recursion
+    - To avoid processing a node multiple times, we use a boolean visited array.
+    - Time complexity: O(V + E), where V is the number of vertices and E is the number of edges in the graph.
+      Auxiliary Space: O(V + E), since an extra visited array of size V is required, And stack size for recursive calls 
+      to DFSRec function.
 - Dynamic programing
   - mainly an optimization over plain recursion
   - simply store the results of subproblems so that we do not have to re-compute them when needed later
