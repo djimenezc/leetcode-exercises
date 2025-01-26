@@ -1,7 +1,9 @@
 """
 Given the root of a complete binary tree, return the number of the nodes in the tree.
 
-According to Wikipedia, every level, except possibly the last, is completely filled in a complete binary tree, and all nodes in the last level are as far left as possible. It can have between 1 and 2h nodes inclusive at the last level h.
+According to Wikipedia, every level, except possibly the last, is completely filled in a complete binary tree,
+and all nodes in the last level are as far left as possible. It can have between 1 and 2h nodes inclusive
+at the last level h.
 
 Design an algorithm that runs in less than O(n) time complexity.
 
@@ -37,7 +39,6 @@ from ..Utils import TreeNode, build_tree
 
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
-
         if not root:
             return 0
         if not root.left and not root.right:  # leaf
@@ -46,14 +47,16 @@ class Solution:
         return 1 + self.countNodes(root.left) + self.countNodes(root.right)
 
     def countNodes2(self, root: Optional[TreeNode]) -> int:
-        if not root: return 0
-        return 1 + self.countNodes(root.left) + self.countNodes(root.right)
+        if not root:
+            return 0
+        return 1 + self.countNodes2(root.left) + self.countNodes2(root.right)
 
     def depth(self, root):
         height = 0
         while root:
             height += 1
             root = root.left
+
         return height
 
     def countNodes3(self, root: Optional[TreeNode]) -> int:

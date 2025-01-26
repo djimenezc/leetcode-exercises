@@ -58,7 +58,7 @@ pytest.main()
 ```
 
 ## solution template
-[search_insert_position.py](src%2FBinary_Search%2Feasy%2Fsearch_insert_position.py)
+[template.py](src%2Ftemplate.py)
 - Intuition
 - Approach
 - Complexity
@@ -79,10 +79,106 @@ pytest.main()
 - Greedy Algorithm
   -  builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate 
      benefit. Greedy algorithms are used for optimization problems.
+  - work best when the problem exhibits the following properties:
+    - Greedy Choice Property: The optimal solution can be constructed by making the best local choice at each step.
+    - Optimal Substructure: The optimal solution to the problem contains the optimal solutions to its sub-problems.
+  - Here’s how it works:
+    - Start with the initial state of the problem. This is the starting point from where you begin making choices.
+    - Evaluate all possible choices you can make from the current state. Consider all the options available at that 
+      specific moment.
+    - Choose the option that seems best at that moment, regardless of future consequences. This is the“greedy” part – 
+      you take the best option available now, even if it might not be the best in the long run.
+    - Move to the new state based on your chosen option. This becomes your new starting point for the next iteration.
+    - Repeat steps 2-4 until you reach the goal state or no further progress is possible. Keep making the best local 
+      choices until you reach the end of the problem or get stuck.
 - Backtracking
   - Backtracking is like trying different paths, and when you hit a dead end, 
     you backtrack to the last choice and try a different route.
+  - Types:
+    - Decision Problems:Here, we search for a feasible solution.
+    - Optimization Problems: For this type, we search for the best solution.
+    - Enumeration Problems:We find set of all possible feasible solutions to the problems of this type.
+  - Backtracking algorithms are best used to solve problems that have the following characteristics:
+    - There are multiple possible solutions to the problem.
+    - The problem can be broken down into smaller subproblems.
+    - The subproblems can be solved independently.
+  - Complexity
+    - Exponential (O(K^N))
+    - Factorial (O(N!))
+  - At a high level, the template looks like this:
+    ```python
+     ans = [] # Note: This can be a set() as well
+     
+     def is_valid_state(state):
+         # check if it is a valid solution
+         return True
+     
+     def get_candidates(state):
+         return []
+     
+     def backtrack(state):
+         if is_valid_state(state):
+             ans.append(state.copy())
+             # return
+     
+         for candidate in get_candidates(state):
+             state.append(candidate)
+             backtrack(state)
+             state.remove(candidate)
+      
+     state = []
+     backtrack(state)
+    ```
 - Binary Search tree:
+  - Search: 
+    - We compare the value to be searched with the value of the root. 
+    - If it’s equal we are done with the search if it’s smaller we know that we need to go to the left subtree because 
+      in a binary search tree all the elements in the left subtree are smaller and all the elements in the right subtree 
+      are larger. 
+    - Repeat the above step till no more traversal is possible
+    - If at any iteration, key is found, return True. Else False.
+    - Time complexity: O(h), where h is the height of the BST.
+      Auxiliary Space: O(h) This is because of the space needed to store the recursion stack.
+    - recursive
+      ```python
+      # function to search a key in a BST
+      def search(root, key):
+  
+        # Base Cases: root is null or key 
+        # is present at root
+        if root is None or root.key == key:
+            return root
+    
+        # Key is greater than root's key
+        if root.key < key:
+            return search(root.right, key)
+    
+        # Key is smaller than root's key
+        return search(root.left, key)
+      ``` 
+    - iterative:
+      ```python
+      def search_iterative(self, root, x):
+
+        curr = root
+
+        while curr is not None:
+
+            # If curr node is x
+            if curr.data == x:
+                return True
+
+            # Search in right subtree
+            elif curr.data < x:
+                curr = curr.right
+
+            # Search in left subtree
+            else:
+                curr = curr.left
+
+        # If x is not found.
+        return False
+      ```
   
 - Binary tree: https://www.javatpoint.com/bfs-vs-dfs
   - Operations:

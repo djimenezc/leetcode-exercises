@@ -1,5 +1,6 @@
 """
-Given the root of a binary tree, return the average value of the nodes on each level in the form of an array. Answers within 10-5 of the actual answer will be accepted.
+Given the root of a binary tree, return the average value of the nodes on each level in the form of an array.
+Answers within 10-5 of the actual answer will be accepted.
 
 
 Example 1:
@@ -64,15 +65,20 @@ class Solution:
     def averageOfLevels2(self, root: Optional[TreeNode]) -> List[float]:
         q = deque([root])
         ans = []
+
         while q:
-            qlen = len(q)
+            q_len = len(q)
             row = 0
-            for i in range(qlen):
+            for i in range(q_len):
                 node = q.popleft()
                 row += node.val
-                if node.left: q.append(node.left)
-                if node.right: q.append(node.right)
-            ans.append(row / qlen)
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+
+            ans.append(row / q_len)
+
         return ans
 
 
