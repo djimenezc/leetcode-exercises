@@ -82,10 +82,70 @@ pytest.main()
 - Backtracking
   - Backtracking is like trying different paths, and when you hit a dead end, 
     you backtrack to the last choice and try a different route.
+- Binary Search tree:
+  
 - Binary tree: https://www.javatpoint.com/bfs-vs-dfs
-	- DFS: Depth First Search, the stack data structure is used, which works on the LIFO (Last In First Out) principle
-	- BFS: Breadth First Search, level order traversal.[rotate_list.py](src%2FLinked_List%2Fmedium%2Frotate_list.py)
-      - use deque
+  - Operations:
+    - insert
+    - search: most common methods are depth-first search (DFS) and breadth-first search (BFS)
+    - 
+  - DFS: Depth First Search, the stack data structure is used, which works on the LIFO (Last In First Out) principle
+    - explores as far down a branch as possible before backtracking. It is implemented using recursion. 
+    - The main traversal methods in DFS for binary trees are:
+      - Preorder Traversal (current-left-right)
+      - Inorder Traversal (left-current-right)
+      - Postorder Traversal (left-right-current)
+  ```python
+  def searchDFS(root, value):
+     # Base case: If the tree is empty or we've reached a leaf node
+     if root is None:
+         return False
+     # If the node's data is equal to the value we are searching for
+     if root.data == value:
+         return True
+     # Recursively search in the left and right subtrees
+     left_res = searchDFS(root.left, value)
+     right_res = searchDFS(root.right, value)
+ 
+     return left_res or right_res
+  ```
+  - BFS: Breadth First Search, level order traversal.[rotate_list.py](src%2FLinked_List%2Fmedium%2Frotate_list.py)
+    - use deque (Queue)
+    - ```python
+      from collections import deque
+      
+      # Function to search for a value in the binary tree using DFS
+      def searchBFS(root, value):
+         if root is None:
+            return None
+    
+         # Use a queue to perform BFS
+         queue = deque([root])
+     
+         # Find the target node
+         while queue:
+             curr = queue.popleft()
+     
+             if curr.data == value:
+                 return curr
+             if curr.left:
+                 queue.append(curr.left)
+             if curr.right:
+                 queue.append(curr.right)
+      ```
+    - ```python
+      def bfs(root):
+          if root is None:
+              return
+          queue = [root]
+          while queue:
+              node = queue.pop(0)
+              print(node.data, end=' ')
+              if node.left:
+                  queue.append(node.left)
+              if node.right:
+                  queue.append(node.right)
+      ```
 - Graph:
   - BFS: Breadth First Search, level order traversal
     - Breadth First Search (BFS) is a fundamental graph traversal algorithm. It begins with a node, then first 
