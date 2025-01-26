@@ -51,26 +51,49 @@ class Solution:
             return 0
         return 1 + self.countNodes2(root.left) + self.countNodes2(root.right)
 
-    def depth(self, root):
-        height = 0
-        while root:
-            height += 1
-            root = root.left
-
-        return height
-
     def countNodes3(self, root: Optional[TreeNode]) -> int:
 
         if not root:
             return 0
 
-        ld = self.depth(root.left)
-        rd = self.depth(root.right)
+        def depth(root):
+            height = 0
+            while root:
+                height += 1
+                root = root.left
+
+            return height
+
+        ld = depth(root.left)
+        rd = depth(root.right)
 
         if ld == rd:
             return 1 + ((2 ** ld) - 1) + self.countNodes(root.right)
         else:
             return 1 + ((2 ** rd) - 1) + self.countNodes(root.left)
+
+    def countNodes4(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        left_height, right_height = 0, 0
+        curr = root
+
+        while curr:
+            left_height += 1
+            curr = curr.left
+        curr = root
+
+        while curr:
+            right_height += 1
+            curr = curr.right
+
+        if left_height == right_height:
+            return pow(2, left_height) - 1
+
+        return 1 + self.countNodes(root.left) + self.countNodes(root.right)
+
+
+solution = Solution()
 
 
 @pytest.mark.parametrize('root, expected_output', [
@@ -80,14 +103,20 @@ class Solution:
     (build_tree([]), 0),
     (build_tree([1]), 1),
 ])
-def test_merge(root, expected_output):
-    solution = Solution()
-    output = solution.countNodes(root)
+class TestCase:
+    def test_0(self, root, expected_output):
+        output = solution.countNodes(root)
+        assert output == expected_output
 
-    assert output == expected_output
-    output = solution.countNodes2(root)
+    def test_1(self, root, expected_output):
+        output = solution.countNodes2(root)
+        assert output == expected_output
 
-    assert output == expected_output
-    output = solution.countNodes3(root)
+    def test_2(self, root, expected_output):
+        output = solution.countNodes3(root)
+        assert output == expected_output
 
-    assert output == expected_output
+    def test_3(self, root, expected_output):
+        output = solution.countNodes4(root)
+
+        assert output == expected_output

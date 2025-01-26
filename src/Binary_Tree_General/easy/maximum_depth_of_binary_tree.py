@@ -1,7 +1,8 @@
 """
 Given the root of a binary tree, return its maximum depth.
 
-A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest
+leaf node.
 
 
 
@@ -24,7 +25,9 @@ The number of nodes in the tree is in the range [0, 104].
 from typing import Optional
 
 import pytest
+
 from ..Utils import TreeNode
+
 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
@@ -47,14 +50,17 @@ class Solution:
     def maxDepth2(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
+
         stack = [(root, 1)]
         max_depth = 0
+
         while stack:
             node, depth = stack.pop()
             if node:
                 max_depth = max(max_depth, depth)
                 stack.append((node.left, depth + 1))
                 stack.append((node.right, depth + 1))
+
         return max_depth
 
     # To calculate the maximum depth we can use the Depth-First Search. We call a helper function recursively
@@ -66,6 +72,7 @@ class Solution:
     # Runtime: 40 ms, faster than 89.54% of Python3 online submissions for Maximum Depth of Binary Tree.
     # Memory Usage: 16.3 MB, less than 18.15% of Python3 online submissions for Maximum Depth of Binary Tree.
     def maxDepth3(self, root: Optional[TreeNode]) -> int:
+
         def dfs(root, depth):
             if not root:
                 return depth
@@ -74,21 +81,25 @@ class Solution:
         return dfs(root, 0)
 
 
+solution = Solution()
+
+
 @pytest.mark.parametrize('root,expected_output', [
-    # (TreeNode(3, TreeNode(9, None, None),
-    #           TreeNode(20, TreeNode(15, None, None), TreeNode(7, None, None))), 3),
+    (TreeNode(3, TreeNode(9, None, None),
+              TreeNode(20, TreeNode(15, None, None), TreeNode(7, None, None))), 3),
     (TreeNode(1, None, TreeNode(2, None, None)), 2),
     (TreeNode(1, None, None), 1),
     (None, 0),
 ])
-def test_merge(root, expected_output):
-    solution = Solution()
-    output = solution.maxDepth(root)
+class TestCase:
+    def test_0(self, root, expected_output):
+        output = solution.maxDepth(root)
+        assert output == expected_output
 
-    assert output == expected_output
-    output = solution.maxDepth2(root)
+    def test_1(self, root, expected_output):
+        output = solution.maxDepth2(root)
+        assert output == expected_output
 
-    assert output == expected_output
-    output = solution.maxDepth3(root)
-
-    assert output == expected_output
+    def test_2(self, root, expected_output):
+        output = solution.maxDepth3(root)
+        assert output == expected_output
