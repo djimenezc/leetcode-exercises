@@ -47,6 +47,7 @@ class Solution:
             # Break if there is no amount left
             if amount == 0:
                 break
+
         return res
 
 

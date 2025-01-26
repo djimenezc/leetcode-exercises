@@ -1,10 +1,38 @@
+<!-- TOC -->
+* [leetcode-exercises](#leetcode-exercises)
+  * [Pycharm help](#pycharm-help)
+  * [coderpad.io](#coderpadio)
+    * [Code Template:](#code-template-)
+    * [solution template](#solution-template)
+  * [Techniques](#techniques)
+  * [Data structures](#data-structures)
+  * [Complexity](#complexity)
+    * [O(1)](#o1)
+    * [O(log(N))](#ologn)
+    * [O(N)](#on)
+    * [O(K log(N))](#ok-logn)
+    * [O(N log(N))](#on-logn)
+    * [O(N^2)](#on2)
+    * [O(2^N)](#o2n)
+    * [O(N!)](#on-1)
+  * [Big O Notation Practice](#big-o-notation-practice)
+  * [Keyword to Algorithm](#keyword-to-algorithm)
+  * [Python Operators:](#python-operators)
+    * [Arithmetic Operator](#arithmetic-operator)
+    * [Bitwise Operators in Python](#bitwise-operators-in-python)
+  * [Links:](#links)
+  * [Videos](#videos)
+<!-- TOC -->
+
 # leetcode-exercises
 
 Repository with multiple solutions in Python to resolve Leetcode exercises
 https://leetcode.com/studyplan/top-interview-150/
 
-##
---log-cli-level=10
+## Pycharm help
+
+Use to see print statements on the output console
+`--log-cli-level=10`
 
 ## coderpad.io
 
@@ -85,7 +113,7 @@ pytest.main()
     - Start with the initial state of the problem. This is the starting point from where you begin making choices.
     - Evaluate all possible choices you can make from the current state. Consider all the options available at that 
       specific moment.
-    - Choose the option that seems best at that moment, regardless of future consequences. This is the“greedy” part – 
+    - Choose the option that seems best at that moment, regardless of future consequences. This is the “greedy” part – 
       you take the best option available now, even if it might not be the best in the long run.
     - Move to the new state based on your chosen option. This becomes your new starting point for the next iteration.
     - Repeat steps 2-4 until you reach the goal state or no further progress is possible. Keep making the best local 
@@ -94,13 +122,13 @@ pytest.main()
   - Backtracking is like trying different paths, and when you hit a dead end, 
     you backtrack to the last choice and try a different route.
   - Types:
-    - Decision Problems:Here, we search for a feasible solution.
+    - Decision Problems: Here, we search for a feasible solution.
     - Optimization Problems: For this type, we search for the best solution.
-    - Enumeration Problems:We find set of all possible feasible solutions to the problems of this type.
+    - Enumeration Problems: We find set of all possible feasible solutions to the problems of this type.
   - Backtracking algorithms are best used to solve problems that have the following characteristics:
     - There are multiple possible solutions to the problem.
-    - The problem can be broken down into smaller subproblems.
-    - The subproblems can be solved independently.
+    - The problem can be broken down into smaller sub-problems.
+    - The sub-problems can be solved independently.
   - Complexity
     - Exponential (O(K^N))
     - Factorial (O(N!))
@@ -183,9 +211,8 @@ pytest.main()
   - Operations:
     - insert
     - search: most common methods are depth-first search (DFS) and breadth-first search (BFS)
-    - 
   - DFS: Depth First Search, the stack data structure is used, which works on the LIFO (Last In First Out) principle
-    - explores as far down a branch as possible before backtracking. It is implemented using recursion. 
+    explores as far down a branch as possible before backtracking. It is implemented using recursion. 
     - The main traversal methods in DFS for binary trees are:
       - Preorder Traversal (current-left-right)
       - Inorder Traversal (left-current-right)
@@ -259,11 +286,11 @@ pytest.main()
       to DFSRec function.
 - Dynamic programing
   - mainly an optimization over plain recursion
-  - simply store the results of subproblems so that we do not have to re-compute them when needed later
+  - simply store the results of sub-problems so that we do not have to re-compute them when needed later
   - typically reduces time complexities from exponential to polynomial.
-  - store solutions to subproblems so that each is solved only once.
+  - store solutions to sub-problems so that each is solved only once.
   - two ways to store the results, one is top down (or memoization) and other is bottom up (or tabulation).
-  - used when there are overlapping subproblems (the same subproblem is executed multiple times)
+  - used when there are overlapping sub-problems (the same sub-problem is executed multiple times)
     - Memoization:
       - Top-down approach
       - Stores the results of function calls in a table.
@@ -271,18 +298,18 @@ pytest.main()
       - Entries are filled when needed.
     - Tabulation:
       - Bottom-up approach
-      - Stores the results of subproblems in a table
+      - Stores the results of sub-problems in a table
       - Iterative implementation
       - Entries are filled in a bottom-up manner from the smallest size to the final size.
 - Kadanes algorithm
   - Maximum Subarray
   - Kadane’s algorithm is to traverse over the array from left to right and for each element, find the maximum sum among
-    all subarrays ending at that element. The result will be the maximum of all these values. 
+    all sub-arrays ending at that element. The result will be the maximum of all these values. 
   - O(n) Time and O(1) Space
 - Sliding windows
   - problems in which a fixed or variable-size window is moved through a data structure, typically an array or string, 
-  - to solve problems efficiently based on continuous subsets of elements. This technique is used when we need to 
-  - find subarrays or substrings according to a given set of conditions.
+    to solve problems efficiently based on continuous subsets of elements. This technique is used when we need to 
+    find sub-arrays or substrings according to a given set of conditions.
 - Intervals
   - subset of array questions where you are given an array of two-element arrays (an interval) and the two values 
     represent a start and an end value
@@ -297,6 +324,20 @@ pytest.main()
   - Hash maps are indexed data structures. A hash map makes use of a hash function to compute an index with a 
     key into an array of buckets or slots.
   - Its value is mapped to the bucket with the corresponding index. The key is unique and immutable.
+- Sets in Python
+  - used to store a collection of items with the following properties.
+    - No duplicate elements. If try to insert the same item again, it overwrites previous one.
+    - An unordered collection. When we access all items, they are accessed without any specific order, and we cannot 
+      access items using indexes as we do in lists.
+    - Internally use hashing that makes set efficient for search, insert and delete operations.
+      It gives a major advantage over a list for problems with these operations.
+    - Mutable, meaning we can add or remove elements after their creation, the individual elements within the set 
+      cannot be changed directly.
+  - Operations:
+    - insert: O(1)
+    - union
+    - intersection
+    - difference
 - Stacks (LIFO)
   - The stack is a basic data structure in which the insertion of new elements takes place at the top 
     and deletion of elements also takes place from the top
@@ -351,25 +392,24 @@ pytest.main()
 ### O(1)
 Constant time complexity. Could be
 
-Hashmap lookup
-Array access and update
-Pushing and popping elements from a stack
-Finding and applying math formula
-Typically for n > 10⁹
+- Hashmap lookup
+- Array access and update
+- Pushing and popping elements from a stack
+- Finding and applying math formula
+- Typically for n > 10⁹
 
 ### O(log(N))
 log(N) grows VERY slowly.
 
 In coding interviews, log(N) typically means
-
-Binary search or variant
-Balanced binary search tree lookup
-Processing the digits of a number
-Typically for n > 10⁸
+- Binary search or variant
+- Balanced binary search tree lookup
+- Processing the digits of a number
+- Typically for n > 10⁸
 
 ### O(N)
-Linear time typically means looping through a linear data structure a constant number of times. Most commonly, this means
-
+Linear time typically means looping through a linear data structure a constant number of times. 
+Most commonly, this means:
 - Going through array/linked list
 - Two pointers
 - Some types of greedy
@@ -385,9 +425,10 @@ K closest points, merge K sorted lists.
 - Typically for n ≤ 10⁶
 
 ###  O(N log(N))
-
 - Sorting. The default sorting algorithm's expected runtime in all mainstream languages is N log(N). 
 For example, java uses a variant of merge sort for object sorting and a variant of Quick Sort for primitive type sorting.
+- Timsort: Tim Sort is a hybrid sorting algorithm derived from merge sort and insertion sort. It was designed to perform 
+  well on many kinds of real-world data
 - Divide and conquer with a linear time merge operation. Divide is normally log(N), and if merge is O(N) then 
 the overall runtime is O(N log(N)). An example problem is smaller numbers to the right.
 - Typically for n ≤ 10⁶
@@ -401,7 +442,6 @@ Also called quadratic time.
 
 ### O(2^N)
 Grows very rapidly. Often requires memoization to avoid repeated computations and reduce complexity.
-
 - Combinatorial problems, backtracking, e.g. subsets
 - Often involves recursion and is harder to analyze time complexity at first sight
 - Further detailed code examples can be found in the backtracking section
@@ -416,7 +456,7 @@ computations and reduce complexity.
 - Combinatorial problems, backtracking, e.g. permutations
 - Often involves recursion and is harder to analyze time complexity at first sight
 - Detailed code examples can be found in the backtracking section
-- Typically for n ≤ 12
+- Typically, for n ≤ 12
 
 ## Big O Notation Practice
 Answers for these questions will be at the end of this article.
@@ -563,10 +603,10 @@ print(a << 2) # 40
 - https://realpython.com/sorting-algorithms-python/
 - https://docs.python.org/3/reference/index.html
 - https://www.geeksforgeeks.org/heap-data-structure/
+- https://www.geeksforgeeks.org/timsort/
 
 ## Videos
 - [Algorithms](https://www.youtube.com/watch?v=KEEKn7Me-ms&list=PLI1t_8YX-ApvMthLj56t1Rf-Buio5Y8KL)
 - [Data Structures](https://www.youtube.com/watch?v=IhJGJG-9Dx8&list=PLI1t_8YX-Apv-UiRlnZwqqrRT8D1RhriX)
 - [Big O](https://youtu.be/v4cd1O4zkGw)
 - [You only need 150 LeetCode questions](https://www.youtube.com/watch?v=J_a4DEw-kCQ)
-

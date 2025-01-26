@@ -54,10 +54,10 @@ class Solution:
 def test_merge(s, t, expected_output):
     solution = Solution()
     # Number of vertices in the graph
-    V = 5
+    n_vertex = 5
 
     # Adjacency list representation of the graph
-    adj = [[] for _ in range(V)]
+    adj = [[] for _ in range(n_vertex)]
 
     # Add edges to the graph
     solution.add_edge(adj, 0, 1)

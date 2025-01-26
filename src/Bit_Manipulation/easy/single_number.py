@@ -25,17 +25,17 @@ Each element in the array appears twice except for one element which appears onl
 
 The XOR operation has two useful properties:
 
-( x \oplus x = 0 ): XORing a number with itself results in 0.
-( x \oplus 0 = x ): XORing a number with 0 keeps the number unchanged.
+( x ^ x = 0 ): XORing a number with itself results in 0.
+( x ^ 0 = x ): XORing a number with 0 keeps the number unchanged.
 
 By XORing all elements in the array, the elements that appear twice will cancel each other out
-(since ( x \oplus x = 0 )), leaving only the single element that appears once.
+(since ( x ^ x = 0 )), leaving only the single element that appears once.
 
 Approach :
 Initialize a variable result to 0.
 Iterate through each number in the array:
 XOR the number with result.
-After the loop, result will contain the single number that doesn’t appear twice.
+After the loop, result will contain the single number that does not appear twice.
 
 """
 from typing import List

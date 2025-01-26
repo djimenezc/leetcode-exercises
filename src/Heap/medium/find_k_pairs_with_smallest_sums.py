@@ -29,7 +29,6 @@ k <= nums1.length * nums2.length
 
 """
 import heapq
-import random
 from typing import List
 
 import pytest
@@ -40,11 +39,7 @@ class Solution:
     # Intuition
     # The code aims to find the k smallest pairs from two sorted arrays, nums1 and nums2, based on their pair sums.
     # The approach used in the code is optimized to avoid inserting all pairs into the priority queue,
-    # which would result in a time complexity of O(N
-    # 2
-    #  logN
-    # 2
-    #  ) and lead to a Time Limit Exceeded (TLE) error.
+    # which would result in a time complexity of O(N^2logN ^2) and lead to a Time Limit Exceeded (TLE) error.
     #
     # To overcome this, the code follows a specific method to find the k smallest pairs efficiently.
     # It starts by inserting the pair sums of each element from nums1 and the first element of nums2 into
@@ -60,7 +55,9 @@ class Solution:
     #
     # Finally, the code returns the resulting vector containing the k smallest pairs.
     #
-    # Overall, the approach intelligently uses the priority queue to avoid unnecessary computations, allowing for an optimized solution with a time complexity of O(KlogN), where N represents the size of nums1 and K is the given parameter for the number of smallest pairs to find.
+    # Overall, the approach intelligently uses the priority queue to avoid unnecessary computations,
+    # allowing for an optimized solution with a time complexity of O(KlogN), where N represents the size of nums1
+    # and K is the given parameter for the number of smallest pairs to find.
     def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
         resV = []  # Result list to store the pairs
         pq = []  # Priority queue to store pairs with smallest sums, sorted by the sum

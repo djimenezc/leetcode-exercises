@@ -15,8 +15,7 @@ class Solution:
         # integer possible
         if lo > hi:
             return float('-inf')
-        # If the subarray has only one element, return the
-        # element
+        # If the subarray has only one element, return the element
         if lo == hi:
             return a[lo]
         mid = (lo + hi) // 2
@@ -24,13 +23,15 @@ class Solution:
         left_max = self.find_max(a, lo, mid)
         # Get the maximum element from the right half
         right_max = self.find_max(a, mid + 1, hi)
-        # Return the maximum element from the left and right
-        # half
+        # Return the maximum element from the left and right half
+
         return max(left_max, right_max)
 
 
 @pytest.mark.parametrize('nums, expected_output', [
     ([1, 5, 2, 30, 10], 30),
+    ([1, 5, 2, 31, 30, 10], 31),
+    ([1, 5, 2, 30, 10, 40], 40),
 ])
 def test_merge(nums, expected_output):
     solution = Solution()

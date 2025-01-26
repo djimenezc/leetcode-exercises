@@ -1,12 +1,8 @@
 """
-Given an integer array nums where the elements are sorted in ascending order, convert it to a
-height-balanced
+Given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced
  binary search tree.
 
-
-
 Example 1:
-
 
 Input: nums = [-10,-3,0,5,9]
 Output: [0,-3,9,-10,null,5]
@@ -33,6 +29,7 @@ from typing import Optional, List
 import pytest
 
 from src.Binary_Tree_General.Utils import TreeNode, build_tree, is_same_tree
+from src.Binary_Tree_General.medium.populating_next_right_pointers_in_each_node_ii import isSameTree
 
 
 class Solution:
@@ -40,10 +37,12 @@ class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> Optional['TreeNode']:
         if not nums:
             return None
+
         mid = len(nums) // 2
         root = TreeNode(nums[mid])
         root.left = self.sortedArrayToBST(nums[:mid])
         root.right = self.sortedArrayToBST(nums[mid + 1:])
+
         return root
 
     # Slow
@@ -51,15 +50,18 @@ class Solution:
         def helper(arr, s, e):
             if s > e:
                 return None
+
             mid = s + (e - s) // 2
             node = TreeNode(arr[mid])
             node.left = helper(arr, s, mid - 1)
             node.right = helper(arr, mid + 1, e)
+
             return node
 
         n = len(nums)
         if n == 0:
             return None
+
         return helper(nums, 0, n - 1)
 
     def sortedArrayToBST1(self, nums: List[int]) -> Optional[TreeNode]:
@@ -101,17 +103,27 @@ class Solution:
         return root
 
 
+solution = Solution()
+
+
 @pytest.mark.parametrize('nums, expected_output', [
     ([-10, -3, 0, 5, 9], build_tree([0, -3, 9, -10, None, 5])),
     ([1, 3], build_tree([3, 1])),
     ([0, 1, 2], build_tree([1, 0, 2])),
     ([0, 1, 2, 3, 4, 5], build_tree([3, 1, 5, 0, 2, 4])),
 ])
-def test_merge(nums, expected_output):
-    solution = Solution()
-    output = solution.sortedArrayToBST(nums)
+class TestSuite():
+    def test_0(self,nums, expected_output):
+        output = solution.sortedArrayToBST(nums)
 
-    assert is_same_tree(output, expected_output)
-    # output = solution.sortedArrayToBST2(nums)
+        assert is_same_tree(output, expected_output)
+
+    # def test_1(self,nums, expected_output):
+    #     output = solution.sortedArrayToBST1(nums)
     #
-    # assert isSameTree(output, expected_output)
+    #     assert is_same_tree(output, expected_output)
+
+    # def test_2(self,nums, expected_output):
+    #     output = solution.sortedArrayToBST2(nums)
+    #
+    #     assert is_same_tree(output, expected_output)
